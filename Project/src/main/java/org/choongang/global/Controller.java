@@ -1,5 +1,6 @@
 package org.choongang.global;
 
-//요청에 맞는 적절한 서비스를 호출해서 뷰와 연결
 public interface Controller {
+    void show(); // 서비스(Model)와 뷰를 연결
+    void run();
 }
