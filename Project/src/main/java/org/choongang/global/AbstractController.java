@@ -1,6 +1,7 @@
 package org.choongang.global;
 
 import org.choongang.start.constants.StartMenu;
+import org.choongang.start.startmain.StartMainRouter;
 import org.choongang.template.Templates;
 
 import java.util.Scanner;
@@ -9,6 +10,7 @@ import java.util.function.Predicate;
 public abstract class AbstractController implements Controller {
 
     protected Scanner sc;
+    protected Menu menu;
     public AbstractController() {
         sc = new Scanner(System.in);
     }
@@ -58,7 +60,9 @@ public abstract class AbstractController implements Controller {
         prompt();
     }
 
-
+    public void setMenu(Menu menu) {
+        this.menu = menu;
+    }
 
     private void change(int menuNo) {
         StartMenu startmenu = null;
@@ -69,6 +73,6 @@ public abstract class AbstractController implements Controller {
       }
 
         // 메뉴 컨트롤러 변경 처리 - Router
-        //MainRouter.getInstance().change(menu);
+        StartMainRouter.getInstance().change(startmenu);
     }
 }

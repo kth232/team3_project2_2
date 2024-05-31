@@ -27,6 +27,7 @@ public class StartMainRouter implements Router {
             case LOGIN: controller = startlocator.find(StartMenu.LOGIN); break;
             default: controller = new StartMainController();
         }
+        System.out.println("오류?");
         controller.run();
     }
 

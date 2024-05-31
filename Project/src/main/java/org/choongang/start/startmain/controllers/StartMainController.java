@@ -18,7 +18,6 @@ public class StartMainController extends AbstractController {
         try {
             router.change(StartMenu.STARTMAIN);
         } catch (RuntimeException e) {
-            e.printStackTrace();
             System.out.println("error");
         }
     }
