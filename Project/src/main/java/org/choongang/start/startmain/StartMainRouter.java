@@ -26,16 +26,15 @@ public class StartMainRouter implements Router {
         switch (startMenu){
             case JOIN: controller = startlocator.find(StartMenu.JOIN); break;
             case LOGIN: controller = startlocator.find(StartMenu.LOGIN); break;
-            default: controller = new JoinController(); break; // 바꾸세요
+            default: controller = new StartMainController(); break;
         }
-        System.out.println("오류?");
-        controller.run();
+        controller.run(); // common(), show(), prompt()
     }
 
     @Override
     public void start() {
         while (true){
-            change(StartMenu.STARTMAIN);
+            change(StartMenu.STARTMAIN); //첫 화면은 StartMain 컨트롤러 출력 화면
         }
 
     }

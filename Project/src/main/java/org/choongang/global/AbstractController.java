@@ -19,11 +19,17 @@ public abstract class AbstractController implements Controller {
      * 상단 공통 출력 부분
      */
     public void common() {
+        System.out.println(Templates.getInstance().doubleLine());
         System.out.println("Common 출력");
         System.out.println(Templates.getInstance().doubleLine());
     }
 
 
+    /**
+     * 입력 항목
+     *  - 문자: q, exit, quit - 종료
+     *  - 숫자: 메뉴 항목
+     */
     public void prompt() {
         System.out.print("메뉴 선택: ");
         String menu = sc.nextLine();
@@ -41,6 +47,13 @@ public abstract class AbstractController implements Controller {
         }
     }
 
+    /**
+     * 입력과 검증을 함께 진행
+     *
+     * @param message : 항목 메세지
+     * @param predicate : 판별식
+     * @return
+     */
     protected String promptWithValidation(String message, Predicate<String> predicate) {
         String str = null;
         do {
@@ -53,6 +66,10 @@ public abstract class AbstractController implements Controller {
 
 
 
+    /**
+     * 템플릿 메서드 패턴 : 특정 절차가 고정되어 있는 경우
+     *
+     */
     @Override
     public final void run() {
         common();
@@ -60,9 +77,6 @@ public abstract class AbstractController implements Controller {
         prompt();
     }
 
-    public void setMenu(Menu menu) {
-        this.menu = menu;
-    }
 
     private void change(int menuNo) {
         StartMenu startmenu = null;
