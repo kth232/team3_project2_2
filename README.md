@@ -1,4 +1,4 @@
-상수 정의
+상수 정의 예시!
 ```
 enum Class StudentManagement {
   STSELECT
