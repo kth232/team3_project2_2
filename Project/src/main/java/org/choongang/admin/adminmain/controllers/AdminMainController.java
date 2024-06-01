@@ -10,4 +10,9 @@ public class AdminMainController extends AbstractController {
         //System.out.println("AdminMainTpl 화면");
         Templates.getInstance().render(AdminMenu.ADMINMAIN);
     }
+
+    @Override
+    public void prompt() {
+
+    }
 }

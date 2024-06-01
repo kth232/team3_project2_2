@@ -1,6 +1,7 @@
 package org.choongang.admin.adminmain;
 
 import org.choongang.admin.AdminControllerLocator;
+import org.choongang.admin.adminmain.controllers.AdminMainController;
 import org.choongang.admin.constants.AdminMenu;
 import org.choongang.global.Controller;
 import org.choongang.global.ControllerLocator;
@@ -26,22 +27,16 @@ public class AdminMainRouter implements Router {
     public void change(Menu menu) {
         ControllerLocator adminlocator = AdminControllerLocator.getInstance();
         AdminMenu adminMenu = (AdminMenu) menu;
+
         Controller controller = null;
+
         switch (adminMenu){
             case STUDENT: controller = adminlocator.find(AdminMenu.STUDENT); break;
             case ATTENDANCE: controller = adminlocator.find(AdminMenu.ATTENDANCE); break;
             case GRADE: controller = adminlocator.find(AdminMenu.GRADE); break;
             case LECTURE: controller = adminlocator.find(AdminMenu.LECTURE); break;
-            default: controller = new StartMainController(); break;
+            default: controller = new AdminMainController(); break;
         }
         controller.run(); // common(), show(), prompt()
-    }
-
-    @Override
-    public void start() {
-        while (true){
-            change(StartMenu.STARTMAIN); //첫 화면은 StartMain 컨트롤러 출력 화면
-        }
-
     }
 }

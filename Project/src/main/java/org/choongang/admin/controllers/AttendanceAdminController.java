@@ -13,11 +13,11 @@ import org.choongang.template.Templates;
 public class AttendanceAdminController extends AbstractController {
     @Override
     public void show() {
-        //System.out.println("LoginTpl화면");
+
         Templates.getInstance().render(AdminMenu.ATTENDANCE);
 
-        //ControllerLocator locator = AdminControllerLocator.getInstance();
-        //Controller controller = locator.find(AdminMenu.ATTENDANCE);
+        ControllerLocator locator = AdminControllerLocator.getInstance();
+        Controller controller = locator.find(AdminMenu.ATTENDANCE);
 
        // if (controller != null) {
         //    controller.run();

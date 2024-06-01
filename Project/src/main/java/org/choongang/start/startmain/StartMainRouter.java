@@ -1,15 +1,12 @@
 package org.choongang.start.startmain;
 
-import org.choongang.global.Controller;
-import org.choongang.global.ControllerLocator;
-import org.choongang.global.Menu;
-import org.choongang.global.Router;
+import org.choongang.global.*;
 import org.choongang.start.controllers.JoinController;
 import org.choongang.start.startmain.controllers.StartMainController;
 import org.choongang.start.StartControllerLocator;
 import org.choongang.start.constants.StartMenu;
 
-public class StartMainRouter implements Router {
+public class StartMainRouter implements Router, Startable {
     private static Router instance;
     private StartMainRouter(){}
 

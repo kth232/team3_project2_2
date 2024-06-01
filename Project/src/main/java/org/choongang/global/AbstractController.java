@@ -85,7 +85,6 @@ public abstract class AbstractController implements Controller {
             case 2: startmenu = StartMenu.LOGIN; break; // 로그인
             default: startmenu = StartMenu.STARTMAIN; break; // 메인 메뉴
       }
-
         // 메뉴 컨트롤러 변경 처리 - Router
         StartMainRouter.getInstance().change(startmenu);
     }

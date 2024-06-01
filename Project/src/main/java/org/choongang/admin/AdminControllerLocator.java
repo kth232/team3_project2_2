@@ -42,7 +42,6 @@ public class AdminControllerLocator extends AbstractControllerLocator {
                 case STUDENT: controller = new StudentAdminController(); break;
                 case LECTURE: controller = new LectureAdminController(); break;
                 default: controller = new AdminMainController(); break;
-
             }
         }else if(menu instanceof  AdminMenu){
 

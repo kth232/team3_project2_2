@@ -11,10 +11,11 @@ import org.choongang.start.controllers.LoginController;
 public class StartControllerLocator extends AbstractControllerLocator {
     private static ControllerLocator instance;
 
-    private StartControllerLocator() {}
+    private StartControllerLocator() {
+    }
 
     public static ControllerLocator getInstance() {
-        if(instance == null) {
+        if (instance == null) {
             instance = new StartControllerLocator();
         }
         return instance;
@@ -23,24 +24,23 @@ public class StartControllerLocator extends AbstractControllerLocator {
     @Override
     public Controller find(Menu menu) {
         Controller controller = controllers.get(menu);
-        if(controller != null) {
+        if (controller != null) {
             return controller;
         }
 
-        if(menu instanceof StartMenu){
+        if (menu instanceof StartMenu) {
             StartMenu startMenu = (StartMenu) menu;
-            switch(startMenu) {
-                case JOIN : controller = new JoinController(); break;
+            switch (startMenu) {
+                case JOIN: controller = new JoinController(); break;
                 default: controller = new LoginController(); break;
             }
-
         }else if(menu instanceof  AdminMenu){
 
             controller = new AdminMainController();
 
+       }
+            //controllers.put(menu, controller);
+            return controller;
         }
-
-        controllers.put(menu,controller);
-        return controller;
     }
-}
+
