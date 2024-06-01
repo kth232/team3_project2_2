@@ -1,5 +1,5 @@
 package org.choongang.global;
 
 public interface ServiceLocator {
-    Service find();
+    Service find(Menu menu);
 }
