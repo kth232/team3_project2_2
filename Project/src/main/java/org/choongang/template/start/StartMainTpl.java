@@ -12,7 +12,7 @@ public class StartMainTpl implements Template {
             sb.append("1. 회원가입\n");
             sb.append("2. 로그인\n");
             sb.append(Templates.getInstance().line());
-
+                //
         return sb.toString();
     }
 }
