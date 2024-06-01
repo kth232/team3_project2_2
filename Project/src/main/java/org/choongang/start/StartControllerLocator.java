@@ -34,7 +34,7 @@ public class StartControllerLocator extends AbstractControllerLocator {
                 default: controller = new LoginController(); break;
             }
 
-        }else if(menu instanceof  AdminMenu){
+        }else if(menu instanceof AdminMenu){
 
             controller = new AdminMainController();
 

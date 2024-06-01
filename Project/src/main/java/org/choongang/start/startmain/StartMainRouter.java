@@ -4,7 +4,6 @@ import org.choongang.global.Controller;
 import org.choongang.global.ControllerLocator;
 import org.choongang.global.Menu;
 import org.choongang.global.Router;
-import org.choongang.start.controllers.JoinController;
 import org.choongang.start.startmain.controllers.StartMainController;
 import org.choongang.start.StartControllerLocator;
 import org.choongang.start.constants.StartMenu;
@@ -24,7 +23,6 @@ public class StartMainRouter implements Router {
     public void change(Menu menu) {
         ControllerLocator startlocator = StartControllerLocator.getInstance();
 
-        StartMenu startMenu = (StartMenu) menu;
         Controller controller = null;
         StartMenu startMenu = (StartMenu) menu;
 

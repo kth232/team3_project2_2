@@ -28,11 +28,17 @@ public class AdminMainRouter implements Router {
         AdminMenu adminMenu = (AdminMenu) menu;
         Controller controller = null;
         switch (adminMenu){
-            case STUDENT: controller = adminlocator.find(AdminMenu.STUDENT); break;
-            case ATTENDANCE: controller = adminlocator.find(AdminMenu.ATTENDANCE); break;
-            case GRADE: controller = adminlocator.find(AdminMenu.GRADE); break;
-            case LECTURE: controller = adminlocator.find(AdminMenu.LECTURE); break;
-            default: controller = new StartMainController(); break;
+            case STUDENT:
+                controller = adminlocator.find(AdminMenu.STUDENT); break;
+            case ATTENDANCE:
+                controller = adminlocator.find(AdminMenu.ATTENDANCE); break;
+            case GRADE:
+                controller = adminlocator.find(AdminMenu.GRADE); break;
+            case LECTURE:
+                controller = adminlocator.find(AdminMenu.LECTURE); break;
+            default:
+                controller = new StartMainController();
+                //StartMainRouter.getInstance().change(StartMenu.STARTMAIN); return;
         }
         controller.run(); // common(), show(), prompt()
     }
@@ -40,7 +46,7 @@ public class AdminMainRouter implements Router {
     @Override
     public void start() {
         while (true){
-            change(StartMenu.STARTMAIN); //첫 화면은 StartMain 컨트롤러 출력 화면
+            change(AdminMenu.ADMINMAIN);
         }
 
     }

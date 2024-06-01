@@ -15,10 +15,12 @@ import org.choongang.start.StartControllerLocator;
 import org.choongang.start.constants.StartMenu;
 import org.choongang.start.controllers.JoinController;
 import org.choongang.start.controllers.LoginController;
+import org.choongang.start.startmain.controllers.StartMainController;
 
 public class AdminControllerLocator extends AbstractControllerLocator {
 
     private static ControllerLocator instance;
+
     private AdminControllerLocator(){}
 
     public static ControllerLocator getInstance() {
@@ -27,6 +29,7 @@ public class AdminControllerLocator extends AbstractControllerLocator {
         }
         return instance;
     }
+
     @Override
     public Controller find(Menu menu) {
         Controller controller = controllers.get(menu);
@@ -44,11 +47,12 @@ public class AdminControllerLocator extends AbstractControllerLocator {
                 default: controller = new AdminMainController(); break;
 
             }
-        }else if(menu instanceof  AdminMenu){
-
-            controller = new AdminMainController();
+        }else {
+            controller = new StartMainController();
 
         }
+
+        controller.setMenu(menu);
         controllers.put(menu,controller);
         return controller;
     }
