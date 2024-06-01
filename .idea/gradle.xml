@@ -4,7 +4,10 @@
   <component name="GradleSettings">
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
+        <option name="delegatedBuild" value="false" />
+        <option name="testRunner" value="PLATFORM" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/Project" />
+        <option name="gradleHome" value="$PROJECT_DIR$/../../양예지/gradle-8.7" />
         <option name="gradleJvm" value="17" />
         <option name="modules">
           <set>
