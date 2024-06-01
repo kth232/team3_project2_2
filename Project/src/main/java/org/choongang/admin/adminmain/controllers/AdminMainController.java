@@ -16,6 +16,7 @@ public class AdminMainController extends AbstractController {
         Templates.getInstance().render(AdminMenu.ADMINMAIN);
     }
 
+    //컨트롤러연결을 합시다..
     @Override
     public void prompt() {
         while(true) {
