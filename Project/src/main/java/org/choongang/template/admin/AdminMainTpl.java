@@ -12,8 +12,7 @@ public class AdminMainTpl implements Template {
         sb.append("1. 학생관리\n");
         sb.append("2. 출결관리\n");
         sb.append("3. 성적관리\n");
-        sb.append("4. 수업?관리\n");
-        sb.append("이후 연결 안해둠 ~~~\n");
+        sb.append("4. 수업관리\n");
         sb.append(Templates.getInstance().line());
 
         return sb.toString();

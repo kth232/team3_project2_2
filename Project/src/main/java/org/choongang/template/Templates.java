@@ -44,20 +44,17 @@ public class Templates {
                 case ATTENDANCE: tpl = new AttendanceTpl(); break;
                 case GRADE: tpl = new GradeTpl(); break;
                 case LECTURE: tpl = new LectureTpl(); break;
-                case ADMINMAIN: tpl = new AdminMainTpl(); break;
+
+                default: tpl = new AdminMainTpl();
+                //case ADMINMAIN: tpl = new AdminMainTpl(); break; 잠시보류 중
             }
         } else {
             StartMenu startMenu = (StartMenu) menu;
             switch (startMenu) {
-                case JOIN:
-                    tpl = new JoinTpl();
-                    break;
-                case LOGIN:
-                    tpl = new LoginTpl();
-                    break;
+                case JOIN: tpl = new JoinTpl(); break;
+                case LOGIN: tpl = new LoginTpl(); break;
 
-                default:
-                    tpl = new StartMainTpl();
+                default: tpl = new StartMainTpl();
             }
         }
 

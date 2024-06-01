@@ -2,6 +2,7 @@ package org.choongang.start.startmain;
 
 import org.choongang.global.Controller;
 import org.choongang.global.ControllerLocator;
+import org.choongang.global.Menu;
 import org.choongang.global.Router;
 import org.choongang.start.controllers.JoinController;
 import org.choongang.start.startmain.controllers.StartMainController;
@@ -18,10 +19,12 @@ public class StartMainRouter implements Router {
         }
         return instance;
     }
+
     @Override
-    public void change(StartMenu startMenu) {
+    public void change(Menu menu) {
         ControllerLocator startlocator = StartControllerLocator.getInstance();
 
+        StartMenu startMenu = (StartMenu) menu;
         Controller controller = null;
         switch (startMenu){
             case JOIN: controller = startlocator.find(StartMenu.JOIN); break;

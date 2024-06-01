@@ -1,8 +1,7 @@
-package org.choongang.admin;
+package org.choongang.admin.adminmain.controllers;
 
 import org.choongang.admin.constants.AdminMenu;
 import org.choongang.global.AbstractController;
-import org.choongang.start.constants.StartMenu;
 import org.choongang.template.Templates;
 
 public class AdminMainController extends AbstractController {

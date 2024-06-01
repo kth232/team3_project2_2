@@ -1,6 +1,6 @@
 package org.choongang.start;
 
-import org.choongang.admin.AdminMainController;
+import org.choongang.admin.adminmain.controllers.AdminMainController;
 import org.choongang.admin.constants.AdminMenu;
 import org.choongang.global.*;
 import org.choongang.start.constants.StartMenu;
@@ -32,8 +32,8 @@ public class StartControllerLocator extends AbstractControllerLocator {
             switch(startMenu) {
                 case JOIN : controller = new JoinController(); break;
                 default: controller = new LoginController(); break;
-
             }
+
         }else if(menu instanceof  AdminMenu){
 
             controller = new AdminMainController();
