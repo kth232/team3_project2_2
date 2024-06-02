@@ -9,5 +9,11 @@ public class JoinService implements Service<InputJoin> {
     @Override
     public void process(InputJoin form) {
 
+        //회원가입 유효성 검사
+
+        //비밀번호 해시화
+
+        //데이터베이스에 영구저장
+
     } //회원가입 기능
 }
