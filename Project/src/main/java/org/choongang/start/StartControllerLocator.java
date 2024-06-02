@@ -34,7 +34,9 @@ public class StartControllerLocator extends AbstractControllerLocator {
                 case JOIN: controller = new JoinController(); break;
                 default: controller = new LoginController(); break;
             }
-        }else if(menu instanceof  AdminMenu){
+
+
+        }else if(menu instanceof AdminMenu){
 
             controller = new AdminMainController();
 

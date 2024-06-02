@@ -1,15 +1,11 @@
 package org.choongang.admin.adminmain;
 
 import org.choongang.admin.AdminControllerLocator;
-import org.choongang.admin.adminmain.controllers.AdminMainController;
 import org.choongang.admin.constants.AdminMenu;
 import org.choongang.global.Controller;
 import org.choongang.global.ControllerLocator;
 import org.choongang.global.Menu;
 import org.choongang.global.Router;
-import org.choongang.start.StartControllerLocator;
-import org.choongang.start.constants.StartMenu;
-import org.choongang.start.startmain.StartMainRouter;
 import org.choongang.start.startmain.controllers.StartMainController;
 
 public class AdminMainRouter implements Router {
@@ -31,12 +27,27 @@ public class AdminMainRouter implements Router {
         Controller controller = null;
 
         switch (adminMenu){
-            case STUDENT: controller = adminlocator.find(AdminMenu.STUDENT); break;
-            case ATTENDANCE: controller = adminlocator.find(AdminMenu.ATTENDANCE); break;
-            case GRADE: controller = adminlocator.find(AdminMenu.GRADE); break;
-            case LECTURE: controller = adminlocator.find(AdminMenu.LECTURE); break;
-            default: controller = new AdminMainController(); break;
+
+            case STUDENT:
+                controller = adminlocator.find(AdminMenu.STUDENT); break;
+            case ATTENDANCE:
+                controller = adminlocator.find(AdminMenu.ATTENDANCE); break;
+            case GRADE:
+                controller = adminlocator.find(AdminMenu.GRADE); break;
+            case LECTURE:
+                controller = adminlocator.find(AdminMenu.LECTURE); break;
+            default:
+                controller = new StartMainController();
+                //StartMainRouter.getInstance().change(StartMenu.STARTMAIN); return;
         }
         controller.run(); // common(), show(), prompt()
+    }
+
+    @Override
+    public void start() {
+        while (true){
+            change(AdminMenu.ADMINMAIN);
+        }
+
     }
 }
