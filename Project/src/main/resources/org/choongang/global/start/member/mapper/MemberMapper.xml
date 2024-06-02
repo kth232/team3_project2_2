@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.choongang.start.member.mapper.MemberMapper.xml">
+    <resultMap id="memberMap" type="org.choongang.start.member.entities.Member">
+        <!--resultMap은 테이블의 컬럼과 entities 클래스의 멤버변수명과 일치하지 않는 경우 맞춰주기 위해 정의한다.
+        ex) Member 클래스에는 userNo로 정의했지만 Member 테이블에는 USER_NO로 되어있음
+        -->
+        <result column="USER_NO" property="userNo" />
+        <result column="USER_ID" property="userId" />
+        <result column="USER_PW" property="userPw" />
+        <result column="USER_NM" property="userNm" />
+        <result column="REG_DT" property="regDt" />
+    </resultMap>
+</mapper>
