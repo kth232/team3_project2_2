@@ -6,9 +6,6 @@ import org.choongang.global.Controller;
 import org.choongang.global.ControllerLocator;
 import org.choongang.global.Menu;
 import org.choongang.global.Router;
-import org.choongang.start.StartControllerLocator;
-import org.choongang.start.constants.StartMenu;
-import org.choongang.start.startmain.StartMainRouter;
 import org.choongang.start.startmain.controllers.StartMainController;
 
 public class AdminMainRouter implements Router {

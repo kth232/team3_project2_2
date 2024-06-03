@@ -1,5 +1,5 @@
 package org.choongang.global;
 
-public interface Service<T> {
-    void process(T form);
+public interface Service<T> extends Processable<T> {
+
 }

@@ -2,6 +2,7 @@ package org.choongang.template;
 
 import org.choongang.admin.constants.AdminMenu;
 import org.choongang.global.Menu;
+import org.choongang.grades.constants.GradeMenu;
 import org.choongang.start.constants.StartMenu;
 import org.choongang.template.admin.*;
 import org.choongang.template.start.JoinTpl;
@@ -11,6 +12,7 @@ import org.choongang.template.start.StartMainTpl;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.function.Supplier;
 
 public class Templates {
     private static Templates instance;
@@ -29,11 +31,15 @@ public class Templates {
     }
 
     public void render(Menu menu) {
-
-        System.out.println(find(menu).getTpl());
+        render(menu, null);
     }
 
-    public Template find(Menu menu) {
+    public void render(Menu menu, Supplier<String> hook) {
+
+        System.out.println(find(menu, hook).getTpl());
+    }
+
+    public Template find(Menu menu, Supplier<String> hook) {
         Template tpl = tpls.get(menu);
         if (tpl != null) {
             return tpl;
@@ -48,14 +54,30 @@ public class Templates {
                 default: tpl = new AdminMainTpl();
                 //case ADMINMAIN: tpl = new AdminMainTpl(); break; 잠시보류 중
             }
+
+        } else if (menu instanceof GradeMenu) {
+            GradeMenu gradeMenu = (GradeMenu) menu;
+            switch (gradeMenu) {
+                case SELECT: tpl = new ClassListTpl(); break;
+
+            }
         } else {
             StartMenu startMenu = (StartMenu) menu;
             switch (startMenu) {
-                case JOIN: tpl = new JoinTpl(); break;
-                case LOGIN: tpl = new LoginTpl(); break;
+                case JOIN:
+                    tpl = new JoinTpl();
+                    break;
+                case LOGIN:
+                    tpl = new LoginTpl();
+                    break;
 
-                default: tpl = new StartMainTpl();
+                default:
+                    tpl = new StartMainTpl();
             }
+        }
+
+        if (hook != null) {
+            tpl.addHook(hook);
         }
 
         tpls.put(menu, tpl);
