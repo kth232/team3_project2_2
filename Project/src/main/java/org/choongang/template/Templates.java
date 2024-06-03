@@ -5,6 +5,7 @@ import org.choongang.global.Menu;
 import org.choongang.grades.constants.GradeMenu;
 import org.choongang.lecture.constants.LectureMenu;
 import org.choongang.start.constants.StartMenu;
+import org.choongang.studentManagement.constants.StSMMenu;
 import org.choongang.template.admin.*;
 import org.choongang.template.lecture.AddLectureTpl;
 import org.choongang.template.lecture.ModLectureTpl;
@@ -65,14 +66,31 @@ public class Templates {
                 case SELECT: tpl = new ClassListTpl(); break;
 
             }
+        } else if (menu instanceof StSMMenu) {
+            StSMMenu stSMMenu = (StSMMenu) menu;
+            switch (stSMMenu) {
+                case STUDENTSUBMAIN :
+                    tpl = new SubLectureTpl();
+                    break;
+            }
         } else if (menu instanceof LectureMenu) {
             LectureMenu lectureMenu = (LectureMenu) menu;
             switch (lectureMenu) {
-                case LECTUREMAIN : tpl = new LectureTpl(); break;
-                case ADDLECTURE: tpl = new AddLectureTpl(); break;
-                case MODLECTURE: tpl = new ModLectureTpl(); break;
-                case LECTURESUBMAIN: tpl = new SubLectureTpl(); break;
-                case LISTLECTURE: tpl = new ClassListTpl(); break;
+                case LECTUREMAIN:
+                    tpl = new LectureTpl();
+                    break;
+                case ADDLECTURE:
+                    tpl = new AddLectureTpl();
+                    break;
+                case MODLECTURE:
+                    tpl = new ModLectureTpl();
+                    break;
+                case LECTURESUBMAIN:
+                    tpl = new SubLectureTpl();
+                    break;
+                case LISTLECTURE:
+                    tpl = new ClassListTpl();
+                    break;
 
             }
         } else {
