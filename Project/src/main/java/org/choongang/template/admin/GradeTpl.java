@@ -4,6 +4,7 @@ import org.choongang.template.Template;
 import org.choongang.template.Templates;
 
 public class GradeTpl implements Template {
+
     @Override
     public String getTpl() {
         StringBuffer sb = new StringBuffer(2000);

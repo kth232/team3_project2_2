@@ -37,6 +37,6 @@ public class GradeAdminControllerLocator extends AbstractControllerLocator {
             controller = new AdminMainController();
         }
 
-        return null;
+        return controller;
     }
 }

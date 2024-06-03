@@ -7,7 +7,7 @@ import lombok.Data;
 @Builder
 public class SearchGrade {
     private String Name;
-    private String Class;
+    private String classNm;
     private String Subject;
     private int Score; //점수
     private String Grade; //등급
