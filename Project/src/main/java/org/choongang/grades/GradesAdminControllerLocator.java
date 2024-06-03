@@ -1,7 +1,7 @@
 package org.choongang.grades;
 
+import org.choongang.admin.adminmain.controllers.AdminMainController;
 import org.choongang.grades.constants.GradesMenu;
-import org.choongang.grades.controllers.BackController;
 import org.choongang.grades.controllers.SelectController;
 import org.choongang.global.AbstractControllerLocator;
 import org.choongang.global.Controller;
@@ -33,8 +33,9 @@ public class GradesAdminControllerLocator extends AbstractControllerLocator {
             GradesMenu gradesMenu = (GradesMenu) menu;
             switch (gradesMenu){
                 case SELECT : controller = new SelectController(); break;
-                default : controller = new BackController();
             }
+        } else {
+            controller = new AdminMainController();
         }
 
         return null;

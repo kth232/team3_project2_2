@@ -13,7 +13,7 @@ import org.choongang.template.Templates;
 public class AttendanceAdminController extends AbstractController {
     @Override
     public void show() {
-        //System.out.println("LoginTpl화면");
+
         System.out.println("출결관리");
         Templates.getInstance().render(AdminMenu.ATTENDANCE);
 

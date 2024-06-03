@@ -1,5 +1,6 @@
 package org.choongang.grades.controllers;
 
+import org.choongang.admin.adminmain.AdminMainRouter;
 import org.choongang.admin.constants.AdminMenu;
 import org.choongang.grades.GradesAdminControllerLocator;
 import org.choongang.grades.constants.GradesMenu;
@@ -39,8 +40,7 @@ public class GradesAdminController extends AbstractController {
             case 1:
                 controller = locator.find(GradesMenu.SELECT);
             default:
-                controller = locator.find(GradesMenu.BACK);
-                return;
+                AdminMainRouter.getInstance().change(AdminMenu.ADMINMAIN);
         }
 
 //        if(controller != null){
