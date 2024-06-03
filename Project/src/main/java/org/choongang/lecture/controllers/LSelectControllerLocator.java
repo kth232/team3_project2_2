@@ -1,18 +1,18 @@
-package org.choongang.grades.controllers;
+package org.choongang.lecture.controllers;
 
 import org.choongang.global.AbstractControllerLocator;
 import org.choongang.global.Controller;
 import org.choongang.global.ControllerLocator;
 import org.choongang.global.Menu;
 
-public class GSelectControllerLocator extends AbstractControllerLocator {
+public class LSelectControllerLocator extends AbstractControllerLocator {
     private static ControllerLocator instance;
 
-    private GSelectControllerLocator(){}
+    private LSelectControllerLocator(){}
 
     public static ControllerLocator getInstance() {
         if(instance == null) {
-            instance = new GSelectControllerLocator();
+            instance = new LSelectControllerLocator();
         }
         return instance;
     }

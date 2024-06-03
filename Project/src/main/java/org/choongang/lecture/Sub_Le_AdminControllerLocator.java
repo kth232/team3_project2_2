@@ -32,8 +32,8 @@ public class Sub_Le_AdminControllerLocator extends AbstractControllerLocator {
         if(menu instanceof LectureMenu){
             LectureMenu lectureMenu = (LectureMenu) menu;
             switch(lectureMenu) {
-                case ADDLECTURE: controller = new AddLectureController(); break;
-                case MODLECTURE: controller = new ModLectureController(); break;
+                case ADDLECTURE: controller = new AddLectureController(); break; //학급 추가하기
+                case MODLECTURE: controller = new ModLectureController(); break; //학급 수정하기
 
                 default: controller = new SubLectureController(); break;
 

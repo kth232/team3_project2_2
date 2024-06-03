@@ -8,11 +8,11 @@
         ex) Member 클래스에는 userNo로 정의했지만 Member 테이블에는 USER_NO로 되어있음
         -->
         <!--
-        <result column="SUBJECT" property="subject" />
-        <result column="CLASS_NM" property="classNm" />
-        <result column="OPENING_DATE" property="openingDate" />
-        <result column="COMPLETION_DATE" property="completionDate" />
-        <result column="CLASS_STATE" property="classState" />
-    </resultMap>
-    -->
+        <result column="SUBJECT" property="Subject" />
+        <result column="CLASS_NM" property="ClassNm" />
+        <result column="OPENING_DATE" property="OpeningDt" />
+        <result column="COMPLETION_DATE" property="CompletionDt" />
+        <result column="CLASS_STATE" property="ClassState" />
+       -->
+   </resultMap>
 </mapper>

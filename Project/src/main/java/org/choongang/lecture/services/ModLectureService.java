@@ -9,7 +9,7 @@ public class ModLectureService implements Service<Lecture> {
     @Override
     public void process(Lecture form) {
 
-        //회원가입 유효성 검사
+        //유효성 검사
 
         //비밀번호 해시화
 

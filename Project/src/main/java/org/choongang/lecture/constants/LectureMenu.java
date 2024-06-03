@@ -4,7 +4,7 @@ import org.choongang.global.Menu;
 
 public enum LectureMenu implements Menu {
     LECTUREMAIN, //학급관리 메인화면=반 선택 화면
-    CLASSCHOICE, //반 선택
+    SELECTCLASS, //반 선택
     BACK, //뒤로 가기(ADMINMENU)
     
     //submain

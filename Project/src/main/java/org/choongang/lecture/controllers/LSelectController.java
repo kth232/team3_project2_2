@@ -1,11 +1,11 @@
-package org.choongang.grades.controllers;
+package org.choongang.lecture.controllers;
 
 import org.choongang.global.AbstractController;
 import org.choongang.lecture.constants.LectureMenu;
 import org.choongang.template.Templates;
 
 //반 선택
-public class GSelectController extends AbstractController {
+public class LSelectController extends AbstractController {
 
     @Override
     public void show() {

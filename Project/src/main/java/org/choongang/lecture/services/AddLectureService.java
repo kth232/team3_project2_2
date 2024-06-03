@@ -9,7 +9,7 @@ import org.choongang.lecture.mapper.LectureMapper;
 import java.util.Arrays;
 import java.util.List;
 
-public class AddLectureService implements Service<Lecture> ,     Retrivable<SearchLecture, List<String>> {
+public class AddLectureService implements Service<Lecture>, Retrivable<SearchLecture, List<String>> {
     //사용자가 보낸(사용자에게 입력받은) 회원가입 데이터 처리하는 클래스
     private final LectureMapper mapper() {
         return null;
@@ -19,7 +19,7 @@ public class AddLectureService implements Service<Lecture> ,     Retrivable<Sear
     @Override
     public void process(Lecture form) {
 
-        //회원가입 유효성 검사
+        //유효성 검사
 
         //비밀번호 해시화
 

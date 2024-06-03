@@ -1,10 +1,11 @@
 package org.choongang.lecture.controllers;
 
 import org.choongang.admin.adminmain.AdminMainRouter;
-import org.choongang.global.*;
+import org.choongang.global.AbstractController;
+import org.choongang.global.Router;
+import org.choongang.global.Service;
 import org.choongang.lecture.constants.LectureMenu;
 import org.choongang.lecture.services.LectureServiceLocator;
-import org.choongang.start.controllers.InputJoin;
 import org.choongang.template.Templates;
 
 public class AddLectureController extends AbstractController {
