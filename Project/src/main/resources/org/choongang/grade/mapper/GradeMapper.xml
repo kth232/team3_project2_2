@@ -16,8 +16,6 @@
         WHERE S.SCORE BETWEEN G.LOSCORE AND G.HISCORE;
     </select>
 
-
-
     <update id="modifyGrades">
         UPDATE STUDENT_GRADE
         <set>
