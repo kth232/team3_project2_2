@@ -35,11 +35,8 @@ public class StartControllerLocator extends AbstractControllerLocator {
             }
 
         }else if(menu instanceof AdminMenu){
-
             controller = new AdminMainController();
-
         }
-
         controllers.put(menu,controller);
         return controller;
     }

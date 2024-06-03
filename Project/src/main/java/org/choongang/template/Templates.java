@@ -3,8 +3,12 @@ package org.choongang.template;
 import org.choongang.admin.constants.AdminMenu;
 import org.choongang.global.Menu;
 import org.choongang.grades.constants.GradeMenu;
+import org.choongang.lecture.constants.LectureMenu;
 import org.choongang.start.constants.StartMenu;
 import org.choongang.template.admin.*;
+import org.choongang.template.lecture.AddLectureTpl;
+import org.choongang.template.lecture.ModLectureTpl;
+import org.choongang.template.lecture.SubLectureTpl;
 import org.choongang.template.start.JoinTpl;
 import org.choongang.template.start.LoginTpl;
 import org.choongang.template.start.StartMainTpl;
@@ -59,6 +63,16 @@ public class Templates {
             GradeMenu gradeMenu = (GradeMenu) menu;
             switch (gradeMenu) {
                 case CLASSCHOICE: tpl = new ClassListTpl(); break;
+
+            }
+        } else if (menu instanceof LectureMenu) {
+            LectureMenu lectureMenu = (LectureMenu) menu;
+            switch (lectureMenu) {
+                case LECTUREMAIN : tpl = new LectureTpl(); break;
+                case ADDLECTURE: tpl = new AddLectureTpl(); break;
+                case MODLECTURE: tpl = new ModLectureTpl(); break;
+                case LECTURESUBMAIN: tpl = new SubLectureTpl(); break;
+                case LISTLECTURE: tpl = new ClassListTpl(); break;
 
             }
         } else {

@@ -20,6 +20,11 @@
         WHERE S.SCORE BETWEEN G.LOSCORE AND G.HISCORE;
     </select>
     -->
+    <select id="getClassGrades" resultMap="gradeMap">
+        SELECT S.NAME, S.SCORE, G.GRADE FROM STUDENTSCORE S, GRADES G
+        WHERE S.SCORE BETWEEN G.LOSCORE AND G.HISCORE;
+    </select>
+
     <update id="modifyGrades">
         UPDATE STUDENT_GRADE
         <set>

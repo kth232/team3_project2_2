@@ -25,9 +25,6 @@ public class GSelectController extends AbstractController {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        //Templates.getInstance().render(GradeMenu.GREDESUBMAIN, () -> {
-        //    return "1. 1반\n2. 2반\n";
-        //});
     }
     @Override
     public void prompt() {
