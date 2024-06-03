@@ -8,6 +8,8 @@ import org.choongang.lecture.constants.LectureMenu;
 import org.choongang.lecture.services.LectureServiceLocator;
 import org.choongang.template.Templates;
 
+import java.time.LocalDateTime;
+
 public class AddLectureController extends AbstractController {
     @Override
     public void show() {
@@ -37,8 +39,8 @@ public class AddLectureController extends AbstractController {
         SearchLecture form = SearchLecture.builder() // DTO
                 .Subject(Subject)
                 .ClassNm(ClassNm)
-                .OpeningDt(Integer.parseInt(OpeningDt))
-                .CompletionDt(Integer.parseInt(CompletionDt))
+                .OpeningDt(LocalDateTime.parse(OpeningDt))
+                .CompletionDt(LocalDateTime.parse(CompletionDt))
                 .ClassState(ClassState)
                 .build(); //컨트롤러쪽에 사용자가 입력한 데이터 유입
 
