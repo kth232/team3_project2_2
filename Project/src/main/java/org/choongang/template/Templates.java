@@ -2,13 +2,9 @@ package org.choongang.template;
 
 import org.choongang.admin.constants.AdminMenu;
 import org.choongang.global.Menu;
-import org.choongang.lecture.constants.LectureMenu;
+import org.choongang.grades.constants.GradeMenu;
 import org.choongang.start.constants.StartMenu;
 import org.choongang.template.admin.*;
-import org.choongang.template.lecture.AddLectureTpl;
-import org.choongang.template.lecture.ChoiceLectureTpl;
-import org.choongang.template.lecture.ModLectureTpl;
-import org.choongang.template.lecture.SubLectureTpl;
 import org.choongang.template.start.JoinTpl;
 import org.choongang.template.start.LoginTpl;
 import org.choongang.template.start.StartMainTpl;
@@ -16,6 +12,7 @@ import org.choongang.template.start.StartMainTpl;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.function.Supplier;
 
 public class Templates {
     private static Templates instance;
@@ -34,11 +31,15 @@ public class Templates {
     }
 
     public void render(Menu menu) {
-
-        System.out.println(find(menu).getTpl());
+        render(menu, null);
     }
 
-    public Template find(Menu menu) {
+    public void render(Menu menu, Supplier<String> hook) {
+
+        System.out.println(find(menu, hook).getTpl());
+    }
+
+    public Template find(Menu menu, Supplier<String> hook) {
         Template tpl = tpls.get(menu);
         if (tpl != null) {
             return tpl;
@@ -53,25 +54,30 @@ public class Templates {
                 default: tpl = new AdminMainTpl();
                 //case ADMINMAIN: tpl = new AdminMainTpl(); break; 잠시보류 중
             }
-        } else if(menu instanceof StartMenu startMenu) {
-            switch (startMenu) {
-                case JOIN: tpl = new JoinTpl(); break;
-                case LOGIN: tpl = new LoginTpl(); break;
 
-                default: tpl = new StartMainTpl();
+        } else if (menu instanceof GradeMenu) {
+            GradeMenu gradeMenu = (GradeMenu) menu;
+            switch (gradeMenu) {
+                case SELECT: tpl = new ClassListTpl(); break;
+
             }
         } else {
-            LectureMenu lectureMenu = (LectureMenu) menu;
-            switch (lectureMenu) {
-                case LECTUREMAIN: tpl = new LectureTpl(); break;
-                case CLASSCHOICE: tpl = new ChoiceLectureTpl(); break;
-                case BACK: tpl = new AdminMainTpl(); break;
-                case LECTURESUBMAIN: tpl = new SubLectureTpl(); break;
-                case ADDLECTURE: tpl = new AddLectureTpl(); break;
-                case MODLECTURE: tpl = new ModLectureTpl(); break;
+            StartMenu startMenu = (StartMenu) menu;
+            switch (startMenu) {
+                case JOIN:
+                    tpl = new JoinTpl();
+                    break;
+                case LOGIN:
+                    tpl = new LoginTpl();
+                    break;
 
-                default: tpl = new LectureTpl();
+                default:
+                    tpl = new StartMainTpl();
             }
+        }
+
+        if (hook != null) {
+            tpl.addHook(hook);
         }
 
         tpls.put(menu, tpl);
