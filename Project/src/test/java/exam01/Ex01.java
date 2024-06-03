@@ -1,10 +1,13 @@
 package exam01;
 
+import org.apache.ibatis.annotations.AutomapConstructor;
 import org.apache.ibatis.session.SqlSession;
 import org.choongang.global.configs.DBConn;
 import org.choongang.start.member.entities.Member;
 import org.choongang.start.member.mapper.MemberMapper;
 import org.junit.jupiter.api.Test;
+import java.util.List;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class Ex01 {
 
@@ -27,6 +30,8 @@ public class Ex01 {
 
         //update test
 
+
         System.out.println(cnt);
     }
+
 }

@@ -1,5 +1,6 @@
 package org.choongang.start.controllers;
 
+import org.choongang.admin.adminmain.AdminMainRouter;
 import org.choongang.admin.constants.AdminMenu;
 import org.choongang.global.*;
 import org.choongang.start.StartControllerLocator;
@@ -48,6 +49,7 @@ public class LoginController extends AbstractController {
             //로그인 성공시 Admin메인 페이지로 이동(1~4번 고르는 화면)
             ControllerLocator locator = StartControllerLocator.getInstance();
             Controller controller = locator.find(AdminMenu.ADMINMAIN);
+           // AdminMainRouter.getInstance().change(AdminMenu.ADMINMAIN);
 
             if (controller != null) {
                 controller.run();

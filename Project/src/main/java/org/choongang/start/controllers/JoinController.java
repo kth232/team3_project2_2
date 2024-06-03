@@ -50,8 +50,8 @@ public class JoinController extends AbstractController {
         });
         String userJob =promptWithValidation("직책을 입력해주세요(강사/매니저): ", s -> {
             boolean match = true;
-            if(!(s.equals("강사")|| s.equals("매니저"))){
-                System.err.println("직책은 강사/매니저 중 입력해주세요.");
+            if(!s.equals("강사") && !s.equals("매니저")){
+                System.err.println("직책은 강사 또는 매니저 중 입력해주세요.");
                 match = false;
             }
             return match;
