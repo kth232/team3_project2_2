@@ -33,7 +33,7 @@ public class JoinController extends AbstractController {
         * 검증에 실패했을 경우 while문 계속 반복
         * */
 
-        String userName = promptWithValidation("이름: ",s -> !s.isBlank()); //공백일경우 반복
+        String userName = promptWithValidation("이름을 입력해주세요: ",s -> !s.isBlank()); //공백일경우 반복
 
         String userId = promptWithValidation("가입 아이디를 입력해주세요(6자리 이상): ", s -> s.length() >= 6); //판별식 6자리 이상일경우 true반환
         System.out.println(userId);
@@ -48,12 +48,21 @@ public class JoinController extends AbstractController {
             return match; //비밀번호 일치하지 않을 경우 false
             //fasle일 경우 판별식 반복
         });
+        String userJob =promptWithValidation("직책을 입력해주세요(강사/매니저): ", s -> {
+            boolean match = true;
+            if(!s.equals("강사") && !s.equals("매니저")){
+                System.err.println("직책은 강사 또는 매니저 중 입력해주세요.");
+                match = false;
+            }
+            return match;
+        });
 
         InputJoin form = InputJoin.builder() //값 하나씩 넣어서 전달?
                 .userName(userName)
                 .userId(userId)
                 .userPw(userPw)
                 .confirmPw(confirmPw)
+                .userJob(userJob)
                 .build(); //컨트롤러쪽에 사용자가 입력한 데이터 유입
 
 
@@ -63,7 +72,10 @@ public class JoinController extends AbstractController {
             // 기능 부분 JoinService와 연동
             Service service = StartServiceLocator.getInstance().find(StartMenu.JOIN);
             //JoinService에서 사용자 회원가입 처리기능 담당
-            service.process(form);
+            service.process(form); //주입
+
+            UserSession.getInstance().setUserName(userName);
+            UserSession.getInstance().setUserJob(userJob);
 
             //회원가입 성공시 로그인 페이지로 이동
             router.change(StartMenu.LOGIN);

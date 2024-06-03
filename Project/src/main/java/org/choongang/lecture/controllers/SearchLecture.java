@@ -11,4 +11,5 @@ public class SearchLecture {
     private String OpeningDt; //개설일
     private int CompletionDt; //수료일
     private String ClassState; //학급 상태
+    private String keyword;
 }

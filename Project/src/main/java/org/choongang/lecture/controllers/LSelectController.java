@@ -19,12 +19,12 @@ public class LSelectController extends AbstractController {
     @Override
     public void prompt() {
         try {
-            Retrivable<LectureSearch, Lecture> service = (Retrivable<LectureSearch, Lecture>) LectureServiceLocator.getInstance().find(LectureMenu.LISTLECTURE);
+            Retrivable<SearchLecture, Lecture> service = (Retrivable<SearchLecture, Lecture>) LectureServiceLocator.getInstance().find(LectureMenu.LISTLECTURE);
             System.out.println("유입2");
             System.out.println(service);
             String keyword = promptWithValidation("검색어 입력:", s -> !s.isBlank());
 
-            LectureSearch search = LectureSearch.builder()
+            SearchLecture search = SearchLecture.builder()
                     .keyword(keyword)
                     .build();
 

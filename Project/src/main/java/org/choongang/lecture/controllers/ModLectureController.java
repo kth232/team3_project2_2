@@ -8,6 +8,8 @@ import org.choongang.lecture.services.LectureServiceLocator;
 import org.choongang.start.controllers.InputJoin;
 import org.choongang.template.Templates;
 
+import java.time.LocalDateTime;
+
 public class ModLectureController extends AbstractController {
     @Override
     public void show() {
