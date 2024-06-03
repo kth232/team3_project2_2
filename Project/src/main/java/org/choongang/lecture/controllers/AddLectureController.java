@@ -1,11 +1,14 @@
 package org.choongang.lecture.controllers;
 
 import org.choongang.admin.adminmain.AdminMainRouter;
-import org.choongang.global.*;
+import org.choongang.global.AbstractController;
+import org.choongang.global.Router;
+import org.choongang.global.Service;
 import org.choongang.lecture.constants.LectureMenu;
 import org.choongang.lecture.services.LectureServiceLocator;
-import org.choongang.start.controllers.InputJoin;
 import org.choongang.template.Templates;
+
+import java.time.LocalDateTime;
 
 public class AddLectureController extends AbstractController {
     @Override
@@ -23,22 +26,22 @@ public class AddLectureController extends AbstractController {
         * 주이진 인수를 테스트 하고 만족여부를 boolean 값으로 반환
         * 검증에 실패했을 경우 while문 계속 반복
         * */
-        String subject = promptWithValidation("과목명: ",s -> !s.isBlank()); //공백일경우 반복
+        String Subject = promptWithValidation("과목명: ", s -> !s.isBlank()); //공백일경우 반복
 
-        //String class = promptWithValidation("반명: ",s -> !s.isBlank()); //공백일경우 반복
+        String ClassNm = promptWithValidation("반명: ",s -> !s.isBlank()); //공백일경우 반복
 
-        String openingDate = promptWithValidation("개설일: ",s -> !s.isBlank()); //공백일 경우 반복
+        String OpeningDt = promptWithValidation("개설일: ",s -> !s.isBlank()); //공백일 경우 반복
 
-        String completionDate = promptWithValidation("수료일: ",s -> !s.isBlank()); //공백일 경우 반복
+        String CompletionDt = promptWithValidation("수료일: ",s -> !s.isBlank()); //공백일 경우 반복
 
-        String classState = promptWithValidation("학급 상태: ",s -> !s.isBlank()); //공백일 경우 반복
+        String ClassState = promptWithValidation("학급 상태: ",s -> !s.isBlank()); //공백일 경우 반복
 
-        InputJoin form = InputAddLec.builder() // DTO
-                .subject(subject)
-                .classNm(classNm)
-                .openingDate(openingDate)
-                .completionDate(completionDate)
-                .classState(classState)
+        InputAddLec form = InputAddLec.builder() // DTO
+                .Subject(Subject)
+                .ClassNm(ClassNm)
+                .OpeningDt(LocalDateTime.parse(OpeningDt))
+                .CompletionDt(LocalDateTime.parse(CompletionDt))
+                .ClassState(ClassState)
                 .build(); //컨트롤러쪽에 사용자가 입력한 데이터 유입
 
         Router router = AdminMainRouter.getInstance();
