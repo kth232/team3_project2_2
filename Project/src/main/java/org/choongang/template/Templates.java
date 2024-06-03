@@ -58,7 +58,7 @@ public class Templates {
         } else if (menu instanceof GradeMenu) {
             GradeMenu gradeMenu = (GradeMenu) menu;
             switch (gradeMenu) {
-                case SELECT: tpl = new ClassListTpl(); break;
+                case CLASSCHOICE: tpl = new ClassListTpl(); break;
 
             }
         } else {
