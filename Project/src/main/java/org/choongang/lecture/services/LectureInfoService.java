@@ -1,6 +1,6 @@
 package org.choongang.lecture.services;
 
-import org.choongang.admin.controllers.LectureSearch;
+import org.choongang.lecture.controllers.LectureSearch;
 import org.choongang.global.Retrivable;
 import org.choongang.global.Service;
 import org.choongang.lecture.entities.Lecture;

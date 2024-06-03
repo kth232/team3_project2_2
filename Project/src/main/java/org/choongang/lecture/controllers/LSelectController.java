@@ -1,6 +1,5 @@
 package org.choongang.lecture.controllers;
 
-import org.choongang.admin.controllers.LectureSearch;
 import org.choongang.global.AbstractController;
 import org.choongang.global.Retrivable;
 import org.choongang.lecture.constants.LectureMenu;

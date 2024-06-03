@@ -1,6 +1,6 @@
 package org.choongang.lecture.mapper;
 
-import org.choongang.admin.controllers.LectureSearch;
+import org.choongang.lecture.controllers.LectureSearch;
 import org.choongang.lecture.entities.Lecture;
 
 import java.util.List;
