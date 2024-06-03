@@ -1,16 +1,16 @@
-package org.choongang.template.admin;
+package org.choongang.template.StudentManagement;
 
 import org.choongang.template.Template;
 import org.choongang.template.Templates;
 
-public class StudentTpl implements Template {
+public class StStudentListTpl implements Template {
     @Override
     public String getTpl() {
         StringBuffer sb = new StringBuffer(2000);
 
-        sb.append("======학생관리 시스템=======\n");
-         sb.append("1. 반 선택\n");
-         sb.append("2. 뒤로가기\n");
+        sb.append("1. 학생 추가\n");
+        sb.append("2. 학생 수정\n");
+        sb.append("3. 뒤로가기\n");
 
         sb.append(Templates.getInstance().line());
 
