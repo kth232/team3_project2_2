@@ -11,11 +11,8 @@ import org.choongang.global.AbstractControllerLocator;
 import org.choongang.global.Controller;
 import org.choongang.global.ControllerLocator;
 import org.choongang.global.Menu;
-import org.choongang.grades.controllers.GradesAdminController;
-import org.choongang.start.StartControllerLocator;
-import org.choongang.start.constants.StartMenu;
-import org.choongang.start.controllers.JoinController;
-import org.choongang.start.controllers.LoginController;
+import org.choongang.admin.controllers.GradeAdminController;
+
 import org.choongang.start.startmain.controllers.StartMainController;
 
 public class AdminControllerLocator extends AbstractControllerLocator {
@@ -41,7 +38,7 @@ public class AdminControllerLocator extends AbstractControllerLocator {
         if(menu instanceof AdminMenu){
             AdminMenu adminMenu = (AdminMenu) menu;
             switch(adminMenu) {
-                case GRADE: controller = new GradesAdminController(); break;
+                case GRADE: controller = new GradeAdminController(); break;
                 case ATTENDANCE: controller = new AttendanceAdminController(); break;
                 case STUDENT: controller = new StudentAdminController(); break;
                 case LECTURE: controller = new LectureAdminController(); break;

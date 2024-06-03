@@ -1,16 +1,15 @@
-package org.choongang.grades.controllers;
+package org.choongang.admin.controllers;
 
 import org.choongang.admin.adminmain.AdminMainRouter;
 import org.choongang.admin.constants.AdminMenu;
-import org.choongang.grades.GradesAdminControllerLocator;
-import org.choongang.grades.constants.GradesMenu;
+import org.choongang.grades.GradeAdminControllerLocator;
+import org.choongang.grades.constants.GradeMenu;
 import org.choongang.global.AbstractController;
 import org.choongang.global.Controller;
 import org.choongang.global.ControllerLocator;
-import org.choongang.start.constants.StartMenu;
 import org.choongang.template.Templates;
 
-public class GradesAdminController extends AbstractController {
+public class GradeAdminController extends AbstractController {
     @Override
     public void show() {
         Templates.getInstance().render(AdminMenu.GRADE);
@@ -34,11 +33,11 @@ public class GradesAdminController extends AbstractController {
     }
 
     private void change(int menuNo){
-        ControllerLocator locator = GradesAdminControllerLocator.getInstance();
+        ControllerLocator locator = GradeAdminControllerLocator.getInstance();
         Controller controller = null;
         switch(menuNo){
             case 1:
-                controller = locator.find(GradesMenu.SELECT);
+                controller = locator.find(GradeMenu.SELECT);
             default:
                 AdminMainRouter.getInstance().change(AdminMenu.ADMINMAIN);
         }

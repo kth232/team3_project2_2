@@ -1,21 +1,21 @@
 package org.choongang.grades;
 
 import org.choongang.admin.adminmain.controllers.AdminMainController;
-import org.choongang.grades.constants.GradesMenu;
-import org.choongang.grades.controllers.SelectController;
+import org.choongang.grades.constants.GradeMenu;
+import org.choongang.grades.controllers.GSelectController;
 import org.choongang.global.AbstractControllerLocator;
 import org.choongang.global.Controller;
 import org.choongang.global.ControllerLocator;
 import org.choongang.global.Menu;
 
-public class GradesAdminControllerLocator extends AbstractControllerLocator {
+public class GradeAdminControllerLocator extends AbstractControllerLocator {
     private static ControllerLocator instance;
 
-    private GradesAdminControllerLocator(){}
+    private GradeAdminControllerLocator(){}
 
     public static ControllerLocator getInstance(){
         if(instance == null){
-            instance = new GradesAdminControllerLocator();
+            instance = new GradeAdminControllerLocator();
         }
         return instance;
     }
@@ -23,16 +23,15 @@ public class GradesAdminControllerLocator extends AbstractControllerLocator {
     @Override
     public Controller find(Menu menu) {
         Controller controller = controllers.get(menu);
+
         if(controller != null){
-            if(controller != null){
-                return controller;
-            }
+            return controller;
         }
 
-        if(menu instanceof GradesMenu){
-            GradesMenu gradesMenu = (GradesMenu) menu;
-            switch (gradesMenu){
-                case SELECT : controller = new SelectController(); break;
+        if(menu instanceof GradeMenu){
+            GradeMenu gradeMenu = (GradeMenu) menu;
+            switch (gradeMenu){
+                case SELECT : controller = new GSelectController(); break;
             }
         } else {
             controller = new AdminMainController();
