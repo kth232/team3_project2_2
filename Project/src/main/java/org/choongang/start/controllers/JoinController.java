@@ -72,7 +72,7 @@ public class JoinController extends AbstractController {
             // 기능 부분 JoinService와 연동
             Service service = StartServiceLocator.getInstance().find(StartMenu.JOIN);
             //JoinService에서 사용자 회원가입 처리기능 담당
-            service.process(form);
+            service.process(form); //주입
 
             UserSession.getInstance().setUserName(userName);
             UserSession.getInstance().setUserJob(userJob);

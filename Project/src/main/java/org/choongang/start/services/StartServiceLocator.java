@@ -8,6 +8,7 @@ import org.choongang.start.validators.JoinValidator;
 import org.choongang.start.validators.LoginValidator;
 
 public class StartServiceLocator extends AbstractServiceLocator {
+    private static ServiceLocator instance;
 
     public static ServiceLocator getInstance(){
         if(instance == null){
