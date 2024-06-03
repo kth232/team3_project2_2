@@ -8,5 +8,4 @@ import org.choongang.start.constants.StartMenu;
 public interface Router {
     void change(Menu menu);
 
-    void start();
 }

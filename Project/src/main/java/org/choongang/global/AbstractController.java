@@ -20,7 +20,8 @@ public abstract class AbstractController implements Controller {
      */
     public void common() {
         System.out.println(Templates.getInstance().doubleLine());
-        System.out.println("Common 출력");
+        System.out.println("학생관리 프로그램_3조");
+        System.out.println("");
         System.out.println(Templates.getInstance().doubleLine());
     }
 

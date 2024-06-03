@@ -7,7 +7,7 @@ import org.choongang.start.constants.StartMenu;
 
 
 public class StartMainRouter implements Router, Startable {
-    private static Router instance;
+    private static StartMainRouter instance;
     private StartMainRouter(){}
 
     public static Router getInstance(){
