@@ -4,6 +4,7 @@
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.choongang.studentManagement.mapper.StudentManagementMapper">
     <resultMap id="studentManagementMap" type="org.choongang.studentManagement.entities.StudentManagement">
+        <result column="STUDENT_NO" property="studentNo" />
         <result column="STUDENT_NAME" property="studentName" />
         <result column="STUDENT_CLASS" property="studentClass" />
         <result column="STUDENT_SUBJECT" property="studentSubject" />
@@ -18,9 +19,9 @@
         <bind name="pStudentSubject" value="'%' + _parameter.getStudentSubject() + '%'" />
         <bind name="pStudentAddress" value="'%' + _parameter.getStudentAddress() + '%'" />
         <bind name="pStudentPhone" value="'%' + _parameter.getStudentPhone() + '%'" />
-        SELECT * FROM (SELECT * FROM STUDENT
-        WHERE STUDENT_CLASS = '502호')
+        SELECT * FROM (SELECT ROWNUM NUM, t.* FROM STUDENT t WHERE STUDENT_CLASS = '502호') m
         <where>
+            <![CDATA[m.NUM >= {sRow} AND m.NUM <= {eRow}]]>
             <if test="studentName != null">
                 AND STUDENT_NAME LIKE #{pStudentName}
             </if>
@@ -46,9 +47,9 @@
         <bind name="pStudentSubject" value="'%' + _parameter.getStudentSubject() + '%'" />
         <bind name="pStudentAddress" value="'%' + _parameter.getStudentAddress() + '%'" />
         <bind name="pStudentPhone" value="'%' + _parameter.getStudentPhone() + '%'" />
-        SELECT * FROM (SELECT * FROM STUDENT
-        WHERE STUDENT_CLASS = '503호')
+        SELECT * FROM (SELECT ROWNUM NUM, t.* FROM STUDENT t WHERE STUDENT_CLASS = '503호') m
         <where>
+            <![CDATA[m.NUM >= {sRow} AND m.NUM <= {eRow}]]>
             <if test="studentName != null">
                 AND STUDENT_NAME LIKE #{pStudentName}
             </if>
@@ -69,8 +70,11 @@
 
     <!-- 학생 추가 -->
     <insert id="studentRegister">
-        INSERT INTO STUDENT (STUDENT_NAME, STUDENT_CLASS, STUDENT_SUBJECT, 	STUDENT_ADDRESS, STUDENT_PHONE)
-        VALUES (#{studentName}, #{studentClass}, #{studentSubject}, #{studentAddress}, #{studentPhone})
+        <selectKey keyProperty="studentNo" order="BEFORE" resultType="long">
+            SELECT SEQ_STUDENT.NEXTVAL FROM DUAL
+        </selectKey>
+        INSERT INTO STUDENT (STUDENT_NO, STUDENT_NAME, STUDENT_CLASS, STUDENT_SUBJECT, STUDENT_ADDRESS, STUDENT_PHONE)
+        VALUES (#{studentNo}, #{studentName}, #{studentClass}, #{studentSubject}, #{studentAddress}, #{studentPhone})
     </insert>
 
     <!-- 학생 정보 수정-->
