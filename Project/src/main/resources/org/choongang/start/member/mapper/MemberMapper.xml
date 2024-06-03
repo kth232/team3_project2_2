@@ -11,6 +11,7 @@
         <result column="USER_ID" property="userId" />
         <result column="USER_PW" property="userPw" />
         <result column="USER_NM" property="userNm" />
+        <result column="USER_JOB" property="userJob" />
         <result column="REG_DT" property="regDt" />
     </resultMap>
 
@@ -46,6 +47,24 @@
         </where>
     </select>
 
+    <!-- 회원 목록 갯수, 페이징 구현시 활용 가능 -->
+    <select id="getTotal" resultType="long">
+        <bind name="pUserId" value="'%' + _parameter.getUserId() + '%'" />
+        <bind name="pUserNm" value="'%' + _parameter.getUserNm() + '%'" />
+        <bind name="pKeyword" value="'%' + _parameter.getKeyword() + '%'" />
+        SELECT COUNT(*) FROM MEMBER
+        <where>
+            <if test="userId != null">
+                AND USER_ID LIKE #{pUserId}
+            </if>
+            <if test="userNm != null">
+                AND USER_NM LIKE #{pUserNm}
+            </if>
+            <if test="keyword != null">
+                AND CONCAT(USER_ID, USER_NM) LIKE #{pKeyword}
+            </if>
+        </where>
+    </select>
 
     <!-- 회원 등록 여부 파악 - 갯수가 나오면 이미 등록으로 판단 -->
     <select id="exist" resultType="int">
@@ -54,8 +73,12 @@
 
     <!-- 회원 등록 -->
     <insert id="register">
-        INSERT INTO MEMBER (USER_NO, USER_ID, USER_PW, USER_NM)
-        VALUES (#{userNo}, #{userId}, #{userPw}, #{userNm})
+        <selectKey keyProperty="userNo" order="BEFORE" resultType="long">
+            SELECT SEQ_MEMBER.NEXTVAL FROM DUAL
+        </selectKey>
+
+        INSERT INTO MEMBER (USER_NO, USER_ID, USER_PW, USER_NM, USER_JOB)
+        VALUES (#{userNo}, #{userId}, #{userPw}, #{userNm}, #{userJob})
     </insert>
 
     <!-- 회원 정보 수정 -->
@@ -67,6 +90,9 @@
             </if>
             <if test="userNm != null">
                 USER_NM=#{userNm},
+            </if>
+            <if test="userJob != null">
+                USER_JOB=#{userJob},
             </if>
         </set>
         WHERE USER_ID=#{userId}
