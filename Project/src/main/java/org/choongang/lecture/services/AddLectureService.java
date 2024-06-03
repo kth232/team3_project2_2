@@ -1,14 +1,21 @@
 package org.choongang.lecture.services;
 
+import org.choongang.global.Retrivable;
 import org.choongang.global.Service;
-import org.choongang.lecture.controllers.InputAddLec;
-import org.choongang.start.controllers.InputJoin;
+import org.choongang.lecture.controllers.SearchLecture;
+import org.choongang.lecture.entities.Lecture;
+import org.choongang.lecture.mapper.LectureMapper;
 
-public class AddLectureService implements Service<InputAddLec> {
+import java.util.Arrays;
+import java.util.List;
+
+public class AddLectureService implements Service<Lecture> ,     Retrivable<SearchLecture, List<String>> {
     //사용자가 보낸(사용자에게 입력받은) 회원가입 데이터 처리하는 클래스
+    private final LectureMapper mapper;
+
 
     @Override
-    public void process(InputAddLec form) {
+    public void process(Lecture form) {
 
         //회원가입 유효성 검사
 
@@ -16,5 +23,12 @@ public class AddLectureService implements Service<InputAddLec> {
 
         //데이터베이스에 영구저장
 
-    } //회원가입 기능
+    } //학급 추가 기능
+    
+    @Override
+    public List<String> get(SearchLecture search) {
+        return Arrays.asList(
+                "1반", "2반", "3반"
+        );
+    }
 }

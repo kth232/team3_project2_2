@@ -1,7 +1,9 @@
 package org.choongang.lecture.services;
 
 import org.choongang.global.*;
+import org.choongang.global.configs.DBConn;
 import org.choongang.lecture.constants.LectureMenu;
+import org.choongang.lecture.mapper.LectureMapper;
 import org.choongang.start.constants.StartMenu;
 import org.choongang.start.services.JoinService;
 import org.choongang.start.services.LoginService;
@@ -14,6 +16,11 @@ public class LectureServiceLocator extends AbstractServiceLocator {
         }
         return instance;
     }
+
+    public LectureMapper selectMapper() {
+        return DBConn.getSession().getMapper(LectureMapper.class);
+    }
+
     @Override
     public Service find(Menu menu) {
         //서비스를 찾아주는 ServiceLocator 인터페이스 find 메서드 재정의

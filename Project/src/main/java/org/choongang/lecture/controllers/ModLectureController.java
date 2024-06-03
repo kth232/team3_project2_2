@@ -24,22 +24,22 @@ public class ModLectureController extends AbstractController {
         * 주이진 인수를 테스트 하고 만족여부를 boolean 값으로 반환
         * 검증에 실패했을 경우 while문 계속 반복
         * */
-        String subject = promptWithValidation("과목명: ",s -> !s.isBlank()); //공백일경우 반복
+        String Subject = promptWithValidation("과목명: ",s -> !s.isBlank()); //공백일경우 반복
 
-        //String class = promptWithValidation("반명: ",s -> !s.isBlank()); //공백일경우 반복
+        String ClassNm = promptWithValidation("반 명: ",s -> !s.isBlank()); //공백일경우 반복
 
-        String openingDate = promptWithValidation("개설일: ",s -> !s.isBlank()); //공백일 경우 반복
+        String OpeningDt = promptWithValidation("개설일: ",s -> !s.isBlank()); //공백일 경우 반복
 
-        String completionDate = promptWithValidation("수료일: ",s -> !s.isBlank()); //공백일 경우 반복
+        String CompletionDt = promptWithValidation("수료일: ",s -> !s.isBlank()); //공백일 경우 반복
 
-        String classState = promptWithValidation("학급 상태: ",s -> !s.isBlank()); //공백일 경우 반복
+        String ClassState = promptWithValidation("학급 상태: ",s -> !s.isBlank()); //공백일 경우 반복
 
-        InputJoin form = InputAddLec.builder() // DTO
-                .subject(subject)
-                .classNm(classNm)
-                .openingDate(openingDate)
-                .completionDate(completionDate)
-                .classState(classState)
+        SearchLecture form = SearchLecture.builder() // DTO
+                .Subject(Subject)
+                .ClassNm(ClassNm)
+                .OpeningDt(OpeningDt)
+                .CompletionDt(Integer.parseInt(CompletionDt))
+                .ClassState(ClassState)
                 .build(); //컨트롤러쪽에 사용자가 입력한 데이터 유입
 
         Router router = AdminMainRouter.getInstance();
