@@ -37,8 +37,8 @@ public class LectureAdminController extends AbstractController {
         Controller controller = null;
         switch (menuNo){
             case 1: controller = locator.find(LectureMenu.CLASSCHOICE); break; //반 선택
-            case 2: controller = locator.find(LectureMenu.BACK); break;
-            default: //뒤로 가기->admin main화면
+            case 2: controller = locator.find(LectureMenu.BACK); break; //뒤로 가기->admin main화면
+            default:
                 AdminMainRouter.getInstance().change(LectureMenu.LECTUREMAIN); //adminMainRouter를 사용하는 것이 맞는가?
         }
 

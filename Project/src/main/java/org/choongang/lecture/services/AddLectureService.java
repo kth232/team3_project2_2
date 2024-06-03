@@ -11,7 +11,9 @@ import java.util.List;
 
 public class AddLectureService implements Service<Lecture> ,     Retrivable<SearchLecture, List<String>> {
     //사용자가 보낸(사용자에게 입력받은) 회원가입 데이터 처리하는 클래스
-    private final LectureMapper mapper;
+    private final LectureMapper mapper() {
+        return null;
+    };
 
 
     @Override

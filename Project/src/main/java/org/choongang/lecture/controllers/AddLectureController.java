@@ -23,9 +23,9 @@ public class AddLectureController extends AbstractController {
         * 주이진 인수를 테스트 하고 만족여부를 boolean 값으로 반환
         * 검증에 실패했을 경우 while문 계속 반복
         * */
-        String Subject = promptWithValidation("과목명: ",s -> !s.isBlank()); //공백일경우 반복
+        String Subject = promptWithValidation("과목명: ",s -> !s.isBlank()); //공백일 경우 반복
 
-        String ClassNm = promptWithValidation("반 명: ",s -> !s.isBlank()); //공백일경우 반복
+        String ClassNm = promptWithValidation("반 이름: ",s -> !s.isBlank()); //공백일 경우 반복
 
         String OpeningDt = promptWithValidation("개설일: ",s -> !s.isBlank()); //공백일 경우 반복
 
