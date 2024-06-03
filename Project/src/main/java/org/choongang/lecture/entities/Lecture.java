@@ -1,14 +1,8 @@
-package org.choongang.lecture.controllers;
-
-import lombok.Builder;
-import lombok.Data;
+package org.choongang.lecture.entities;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 
-@Data
-@Builder
-public class InputAddLec { //사용자가 입력한 학급 정보 전달용 클래스
+public class Lecture {//데이터 베이스에서 조회한 레코드 담는 클래스 (학급 정보 관련)
     private String subject; //과목명
     private String classNm; //반 이름
     private LocalDate openingDate; //개설일
