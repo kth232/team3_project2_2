@@ -43,15 +43,12 @@ public class AdminControllerLocator extends AbstractControllerLocator {
                 case STUDENT: controller = new StudentAdminController(); break;
                 case LECTURE: controller = new LectureAdminController(); break;
                 default: controller = new AdminMainController(); break;
-
             }
         }else {
             controller = new StartMainController();
-
         }
-
         controller.setMenu(menu);
-        controllers.put(menu,controller);
+        controllers.put(menu, controller);
         return controller;
     }
 }

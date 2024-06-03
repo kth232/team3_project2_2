@@ -9,6 +9,9 @@ import org.choongang.grades.constants.GradeMenu;
 import org.choongang.grades.mapper.GradeMapper;
 
 public class GradeServiceLocator extends AbstractServiceLocator {
+
+    private static ServiceLocator instance;
+
     public static ServiceLocator getInstance(){
         if(instance == null){
             instance = new GradeServiceLocator();

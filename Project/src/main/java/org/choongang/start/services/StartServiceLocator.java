@@ -1,9 +1,14 @@
 package org.choongang.start.services;
 
-import org.choongang.global.*;
+import org.choongang.global.AbstractServiceLocator;
+import org.choongang.global.Menu;
+import org.choongang.global.Service;
+import org.choongang.global.ServiceLocator;
 import org.choongang.start.constants.StartMenu;
 
 public class StartServiceLocator extends AbstractServiceLocator {
+
+    private static ServiceLocator instance;
 
     public static ServiceLocator getInstance(){
         if(instance == null){
@@ -20,13 +25,17 @@ public class StartServiceLocator extends AbstractServiceLocator {
             return service;
         } //있으면 있는거 사용
 
-        //없으면 추가
-        StartMenu startMenu = (StartMenu) menu;
-        switch (startMenu){
-            case JOIN: service = new JoinService();
-                break;
-            case LOGIN: service = new LoginService();
-                break;
+        if (menu instanceof  StartMenu) {
+            //없으면 추가
+            StartMenu startMenu = (StartMenu) menu;
+            switch (startMenu) {
+                case JOIN:
+                    service = new JoinService();
+                    break;
+                case LOGIN:
+                    service = new LoginService();
+                    break;
+            }
         }
         return service;
     }
