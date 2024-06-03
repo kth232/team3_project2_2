@@ -1,11 +1,11 @@
 package org.choongang.lecture.controllers;
 
 import org.choongang.admin.adminmain.AdminMainRouter;
-import org.choongang.global.*;
-import org.choongang.lecture.Sub_Le_AdminControllerLocator;
+import org.choongang.global.AbstractController;
+import org.choongang.global.Router;
+import org.choongang.global.Service;
 import org.choongang.lecture.constants.LectureMenu;
 import org.choongang.lecture.services.LectureServiceLocator;
-import org.choongang.start.controllers.InputJoin;
 import org.choongang.template.Templates;
 
 public class ModLectureController extends AbstractController {
@@ -24,9 +24,9 @@ public class ModLectureController extends AbstractController {
         * 주이진 인수를 테스트 하고 만족여부를 boolean 값으로 반환
         * 검증에 실패했을 경우 while문 계속 반복
         * */
-        String Subject = promptWithValidation("과목명: ",s -> !s.isBlank()); //공백일경우 반복
+        String Subject = promptWithValidation("과목명: ",s -> !s.isBlank()); //공백일 경우 반복
 
-        String ClassNm = promptWithValidation("반 명: ",s -> !s.isBlank()); //공백일경우 반복
+        String ClassNm = promptWithValidation("반 이름: ",s -> !s.isBlank()); //공백일 경우 반복
 
         String OpeningDt = promptWithValidation("개설일: ",s -> !s.isBlank()); //공백일 경우 반복
 
@@ -37,7 +37,7 @@ public class ModLectureController extends AbstractController {
         SearchLecture form = SearchLecture.builder() // DTO
                 .Subject(Subject)
                 .ClassNm(ClassNm)
-                .OpeningDt(OpeningDt)
+                .OpeningDt(Integer.parseInt(OpeningDt))
                 .CompletionDt(Integer.parseInt(CompletionDt))
                 .ClassState(ClassState)
                 .build(); //컨트롤러쪽에 사용자가 입력한 데이터 유입

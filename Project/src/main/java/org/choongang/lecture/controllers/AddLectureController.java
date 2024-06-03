@@ -37,7 +37,7 @@ public class AddLectureController extends AbstractController {
         SearchLecture form = SearchLecture.builder() // DTO
                 .Subject(Subject)
                 .ClassNm(ClassNm)
-                .OpeningDt(OpeningDt) //왜 개설일은 스트링으로 들어가지??
+                .OpeningDt(Integer.parseInt(OpeningDt))
                 .CompletionDt(Integer.parseInt(CompletionDt))
                 .ClassState(ClassState)
                 .build(); //컨트롤러쪽에 사용자가 입력한 데이터 유입

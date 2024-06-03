@@ -30,6 +30,8 @@
 
     <update id="update">
         UPDATE LECTURE
+        <!--set 태그 안에 넣으면 콤마 자동으로 삭제
+        if문으로 나누면 각 컬럼마다 검색 가능=동적 SQL-->
             <set>
                 <if test="subject != null">
                     SUBJECT = #{subject},

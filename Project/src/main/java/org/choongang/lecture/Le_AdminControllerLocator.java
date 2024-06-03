@@ -10,7 +10,7 @@ import org.choongang.lecture.constants.LectureMenu;
 import org.choongang.lecture.controllers.LSelectController;
 
 public class Le_AdminControllerLocator extends AbstractControllerLocator {
-    private static ControllerLocator instance;
+    private static ControllerLocator instance; //인스턴스 객체 생성
 
     private Le_AdminControllerLocator(){}
 

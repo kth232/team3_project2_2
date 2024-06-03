@@ -21,8 +21,8 @@
         </environment>
     </environments>
     <mappers>
-     <!--   <mapper resource="org/choongang/start/member/mapper/MemberMapper.xml"/> -->
-       <!-- <mapper resource="org/choongang/grades/mapper/GradeMapper.xml"/> -->
+        <mapper resource="org/choongang/start/member/mapper/MemberMapper.xml"/>
+        <mapper resource="org/choongang/grades/mapper/GradeMapper.xml"/>
         <mapper resource="org/choongang/lecture/mapper/LectureMapper.xml" />
     </mappers>
 </configuration>

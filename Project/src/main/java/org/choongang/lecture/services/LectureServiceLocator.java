@@ -10,7 +10,7 @@ import org.choongang.lecture.mapper.LectureMapper;
 
 public class LectureServiceLocator extends AbstractServiceLocator {
 
-    private static ServiceLocator instance;
+    private static ServiceLocator instance; // 인스턴스 객체 생성
 
     public static ServiceLocator getInstance(){
         if(instance == null){

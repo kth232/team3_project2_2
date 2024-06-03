@@ -6,7 +6,7 @@ import org.choongang.global.ControllerLocator;
 import org.choongang.global.Menu;
 
 public class LSelectControllerLocator extends AbstractControllerLocator {
-    private static ControllerLocator instance;
+    private static ControllerLocator instance; //인스턴스 객체 생성
 
     private LSelectControllerLocator(){}
 

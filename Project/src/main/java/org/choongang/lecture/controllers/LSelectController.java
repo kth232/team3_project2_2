@@ -13,18 +13,19 @@ import java.util.stream.Collectors;
 public class LSelectController extends AbstractController {
     @Override
     public void show() {
-
+        //기본 출력 화면=서브메인
+        Templates.getInstance().render(LectureMenu.SELECTCLASS);
     }
 
     @Override
     public void prompt() {
         try {
-            Retrivable<LectureSearch, Lecture> service = (Retrivable<LectureSearch, Lecture>) LectureServiceLocator.getInstance().find(LectureMenu.LISTLECTURE);
-            System.out.println("유입2");
-            System.out.println(service);
+            Retrivable<SearchLecture, Lecture> service = (Retrivable<SearchLecture, Lecture>) LectureServiceLocator.getInstance().find(LectureMenu.LISTLECTURE);
+            //System.out.println("유입2");
+            //System.out.println(service);
             String keyword = promptWithValidation("검색어 입력:", s -> !s.isBlank());
 
-            LectureSearch search = LectureSearch.builder()
+            SearchLecture search = SearchLecture.builder() //키워드로 빌드
                     .keyword(keyword)
                     .build();
 
