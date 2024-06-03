@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.choongang.lecture.mapper.LectureMapper">
+    <resultMap id="lectureMap" type="org.choongang.lecture.entities.Lecture">
+        <result column="CLASS_NO" property="classNo" />
+        <result column="SUBJECT" property="subject" />
+        <result column="CLASS_NM" property="classNm" />
+        <result column="OPENING_DATE" property="openingDate" />
+        <result column="COMPLETION_DATE" property="completionDate" />
+        <result column="CLASS_STATE" property="classState" />
+    </resultMap>
+
+    <select id="getList" resultMap="lectureMap">
+        <bind name="pKeyword" value="'%' + _parameter.getKeyword() + '%'" />
+        SELECT * FROM LECTURE
+        <where>
+            <if test="keyword != null">
+                CONCAT(SUBJECT, CLASS_NM) LIKE #{pKeyword}
+            </if>
+        </where>
+        ORDER BY OPENING_DATE DESC, COMPLETION_DATE
+    </select>
+
+    <insert id="register">
+        INSERT INTO LECTURE
+            VALUES (SEQ_LECTURE.NEXTVAL, #{subject}, #{classNm}, #{openingDate}, #{completionDate}, #{classState})
+    </insert>
+
+    <update id="update">
+        UPDATE LECTURE
+            <set>
+                <if test="subject != null">
+                    SUBJECT = #{subject},
+                </if>
+                <if test="classNm != null">
+                    CLASS_NM = #{classNm},
+                </if>
+                <if test="openingDate != null">
+                    OPENING_DATE = #{openingDate},
+                </if>
+                <if test="completionDate != null">
+                    COMPLETION_DATE = #{completionDate},
+                </if>
+                <if test="classState != null">
+                    CLASS_STATE = #{classState},
+                </if>
+            </set>
+        WHERE CLASS_NO={classNo}
+    </update>
+
+</mapper>

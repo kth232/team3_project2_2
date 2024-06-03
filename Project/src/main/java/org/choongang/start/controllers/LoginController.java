@@ -2,7 +2,10 @@ package org.choongang.start.controllers;
 
 import org.choongang.admin.adminmain.AdminMainRouter;
 import org.choongang.admin.constants.AdminMenu;
-import org.choongang.global.*;
+import org.choongang.global.AbstractController;
+import org.choongang.global.Controller;
+import org.choongang.global.ControllerLocator;
+import org.choongang.global.Service;
 import org.choongang.start.StartControllerLocator;
 import org.choongang.start.UserSession;
 import org.choongang.start.constants.StartMenu;
@@ -60,7 +63,5 @@ public class LoginController extends AbstractController {
             System.err.println(e.getMessage());
             StartMainRouter.getInstance().change(StartMenu.LOGIN);
         }
-
-
     }
 }

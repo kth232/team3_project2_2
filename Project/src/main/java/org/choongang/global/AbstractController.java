@@ -9,7 +9,7 @@ import java.util.function.Predicate;
 
 public abstract class AbstractController implements Controller {
 
-    protected Scanner sc;
+    protected Scanner sc; //스캐너 정의
     protected Menu menu;
     public AbstractController() {
         sc = new Scanner(System.in);
@@ -19,11 +19,10 @@ public abstract class AbstractController implements Controller {
      * 상단 공통 출력 부분
      */
     public void common() {
-        System.out.println(Templates.getInstance().doubleLine());
-        System.out.println("Common 출력");
-        System.out.println(Templates.getInstance().doubleLine());
+        System.out.print(Templates.getInstance().doubleLine());
+        System.out.println("학생관리 프로그램 ver1.0");
+        System.out.print(Templates.getInstance().doubleLine());
     }
-
 
     /**
      * 입력 항목
@@ -43,7 +42,7 @@ public abstract class AbstractController implements Controller {
             change(m); // 메뉴 변경
         } catch (Exception e) {
             e.printStackTrace();
-            System.out.println("메뉴는 숫자로 입력하세요.");
+            System.out.println("메뉴는 [숫자]로 입력하세요.");
         }
     }
 
@@ -63,8 +62,6 @@ public abstract class AbstractController implements Controller {
 
         return str;
     }
-
-
 
     /**
      * 템플릿 메서드 패턴 : 특정 절차가 고정되어 있는 경우
