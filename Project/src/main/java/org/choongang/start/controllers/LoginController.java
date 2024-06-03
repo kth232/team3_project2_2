@@ -4,7 +4,7 @@ import org.choongang.admin.constants.AdminMenu;
 import org.choongang.global.*;
 import org.choongang.start.StartControllerLocator;
 import org.choongang.start.constants.StartMenu;
-import org.choongang.start.services.StartServiceLocator;
+import org.choongang.lecture.services.LectureServiceLocator;
 import org.choongang.start.startmain.StartMainRouter;
 import org.choongang.template.Templates;
 
@@ -38,7 +38,7 @@ public class LoginController extends AbstractController {
         try{
             //로그인 처리
             // 기능 부분 LoginService와 연동
-            Service service = StartServiceLocator.getInstance().find(StartMenu.LOGIN);
+            Service service = LectureServiceLocator.getInstance().find(StartMenu.LOGIN);
             //LoginService에서 사용자 로그인 처리기능 담당
             service.process(form);
 

@@ -1,16 +1,16 @@
-package org.choongang.start.services;
+package org.choongang.lecture.services;
 
-import org.choongang.global.AbstractServiceLocator;
-import org.choongang.global.Menu;
-import org.choongang.global.Service;
-import org.choongang.global.ServiceLocator;
+import org.choongang.global.*;
+import org.choongang.lecture.constants.LectureMenu;
 import org.choongang.start.constants.StartMenu;
+import org.choongang.start.services.JoinService;
+import org.choongang.start.services.LoginService;
 
-public class StartServiceLocator extends AbstractServiceLocator {
+public class LectureServiceLocator extends AbstractServiceLocator {
 
     public static ServiceLocator getInstance(){
         if(instance == null){
-            instance = new StartServiceLocator();
+            instance = new LectureServiceLocator();
         }
         return instance;
     }
@@ -24,11 +24,11 @@ public class StartServiceLocator extends AbstractServiceLocator {
         } //있으면 있는거 사용
 
         //없으면 추가
-        StartMenu startMenu = (StartMenu) menu;
-        switch (startMenu){
-            case JOIN: service = new JoinService();
+        LectureMenu lectureMenu = (LectureMenu) menu;
+        switch (lectureMenu){
+            case ADDLECTURE: service = new AddLectureService();
                 break;
-            case LOGIN: service = new LoginService();
+            case MODLECTURE: service = new ModLectureService();
                 break;
         }
         return service;

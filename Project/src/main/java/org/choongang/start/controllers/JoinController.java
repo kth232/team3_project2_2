@@ -4,13 +4,9 @@ import org.choongang.global.AbstractController;
 import org.choongang.global.Router;
 import org.choongang.global.Service;
 import org.choongang.start.constants.StartMenu;
-import org.choongang.start.services.StartServiceLocator;
+import org.choongang.lecture.services.LectureServiceLocator;
 import org.choongang.start.startmain.StartMainRouter;
 import org.choongang.template.Templates;
-
-import java.io.IOException;
-import java.lang.reflect.Member;
-import java.util.function.Predicate;
 
 /**
  * 회원가입 컨트롤러
@@ -48,7 +44,7 @@ public class JoinController extends AbstractController {
             //fasle일 경우 판별식 반복
         });
 
-        InputJoin form = InputJoin.builder() //값 하나씩 넣어서 전달?
+        InputJoin form = InputJoin.builder() //값 하나씩 넣어서 전달? DTO
                 .userName(userName)
                 .userId(userId)
                 .userPw(userPw)
@@ -60,9 +56,9 @@ public class JoinController extends AbstractController {
         try{
             //회원가입 처리
             // 기능 부분 JoinService와 연동
-            Service service = StartServiceLocator.getInstance().find(StartMenu.JOIN);
+            Service service = LectureServiceLocator.getInstance().find(StartMenu.JOIN);
             //JoinService에서 사용자 회원가입 처리기능 담당
-            service.process(form);
+            service.process(form); //주입
 
             //회원가입 성공시 로그인 페이지로 이동
             router.change(StartMenu.LOGIN);

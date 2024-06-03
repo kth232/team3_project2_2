@@ -10,5 +10,4 @@ public abstract class AbstractControllerLocator implements ControllerLocator{
     protected AbstractControllerLocator() {
         controllers = new HashMap<>();
     }
-
 }
