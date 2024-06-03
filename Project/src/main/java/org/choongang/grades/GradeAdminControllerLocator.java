@@ -31,7 +31,7 @@ public class GradeAdminControllerLocator extends AbstractControllerLocator {
         if(menu instanceof GradeMenu){
             GradeMenu gradeMenu = (GradeMenu) menu;
             switch (gradeMenu){
-                case SELECT : controller = new GSelectController(); break;
+                case SELECTCLASS: controller = new GSelectController(); break;
             }
         } else {
             controller = new AdminMainController();

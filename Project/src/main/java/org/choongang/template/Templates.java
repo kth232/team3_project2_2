@@ -62,7 +62,7 @@ public class Templates {
         } else if (menu instanceof GradeMenu) {
             GradeMenu gradeMenu = (GradeMenu) menu;
             switch (gradeMenu) {
-                case SELECT: tpl = new ClassListTpl(); break;
+                case SELECTCLASS: tpl = new ClassListTpl(); break;
 
             }
         } else if (menu instanceof LectureMenu) {
@@ -79,23 +79,18 @@ public class Templates {
             StartMenu startMenu = (StartMenu) menu;
             switch (startMenu) {
                 case JOIN:
-                    tpl = new JoinTpl();
-                    break;
+                    tpl = new JoinTpl(); break;
                 case LOGIN:
-                    tpl = new LoginTpl();
-                    break;
+                    tpl = new LoginTpl(); break;
 
-                default:
-                    tpl = new StartMainTpl();
+                default: tpl = new StartMainTpl();
             }
         }
 
         if (hook != null) {
             tpl.addHook(hook);
         }
-
         tpls.put(menu, tpl);
-
         return tpl;
     }
 

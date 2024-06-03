@@ -11,8 +11,8 @@ public class ClassListTpl implements Template {
     @Override
     public String getTpl() {
         StringBuffer sb = new StringBuffer(1000);
-        sb.append("반 목록\n");
-        sb.append(hook.get());
+        sb.append("반 목록\n"); 
+        sb.append(hook.get()); //반 목록 출력
         
         return sb.toString();
     }

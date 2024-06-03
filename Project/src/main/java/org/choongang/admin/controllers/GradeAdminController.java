@@ -37,13 +37,11 @@ public class GradeAdminController extends AbstractController {
         Controller controller = null;
         switch(menuNo){
             case 1:
-                controller = locator.find(GradeMenu.SELECT);
+                controller = locator.find(GradeMenu.SELECTCLASS);
                 break;
             default:
                 AdminMainRouter.getInstance().change(AdminMenu.ADMINMAIN);
         }
-
-
          if(controller != null){
               controller.run();
          }

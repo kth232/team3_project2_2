@@ -1,7 +1,7 @@
 package org.choongang.grades.controllers;
 
 import org.choongang.global.AbstractController;
-import org.choongang.lecture.constants.LectureMenu;
+import org.choongang.grades.constants.GradeMenu;
 import org.choongang.template.Templates;
 
 //반 선택
@@ -10,8 +10,8 @@ public class GSelectController extends AbstractController {
     @Override
     public void show() {
 
-        Templates.getInstance().render(LectureMenu.SELECTCLASS, () -> {
-            return "1. 1반\n2. 2반\n";
+        Templates.getInstance().render(GradeMenu.SELECTCLASS, () -> {
+            return "1. 502호\n2. 503호\n";
         });
 
     }
