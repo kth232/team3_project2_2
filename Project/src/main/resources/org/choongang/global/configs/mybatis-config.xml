@@ -23,5 +23,6 @@
     <mappers>
         <mapper resource="org/choongang/start/member/mapper/MemberMapper.xml"/>
         <mapper resource="org/choongang/grades/mapper/GradesMapper.xml"/>
+        <mapper resource="org/choongang/studentManagement/mapper/StudentManagementMapper.xml"/>
     </mappers>
 </configuration>

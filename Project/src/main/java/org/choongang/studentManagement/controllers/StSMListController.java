@@ -1,7 +1,6 @@
-package org.choongang.StudentManagement.controllers;
+package org.choongang.studentManagement.controllers;
 
 import org.choongang.global.AbstractController;
-import org.choongang.global.Menu;
 
 public class StSMListController extends AbstractController {
     @Override

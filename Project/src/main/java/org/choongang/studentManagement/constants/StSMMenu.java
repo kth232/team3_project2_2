@@ -1,4 +1,4 @@
-package org.choongang.StudentManagement.constants;
+package org.choongang.studentManagement.constants;
 
 public enum StSMMenu {
     STSELECT, // 학생 추가

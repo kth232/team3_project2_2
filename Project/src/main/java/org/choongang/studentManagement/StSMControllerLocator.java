@@ -1,20 +1,15 @@
-package org.choongang.StudentManagement;
+package org.choongang.studentManagement;
 
-import org.choongang.StudentManagement.constants.StSMMenu;
-import org.choongang.admin.AdminControllerLocator;
+import org.choongang.studentManagement.constants.StSMMenu;
 import org.choongang.admin.adminmain.controllers.AdminMainController;
-import org.choongang.admin.constants.AdminMenu;
 import org.choongang.admin.controllers.AttendanceAdminController;
 import org.choongang.admin.controllers.GradeAdminController;
-import org.choongang.admin.controllers.LectureAdminController;
 import org.choongang.admin.controllers.StudentAdminController;
 import org.choongang.global.AbstractControllerLocator;
 import org.choongang.global.Controller;
 import org.choongang.global.ControllerLocator;
 import org.choongang.global.Menu;
 import org.choongang.start.startmain.controllers.StartMainController;
-
-import static org.choongang.StudentManagement.constants.StSMMenu.*;
 
 public class StSMControllerLocator extends AbstractControllerLocator {
     private static ControllerLocator instance;
