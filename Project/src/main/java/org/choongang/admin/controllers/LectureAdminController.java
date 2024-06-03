@@ -1,6 +1,5 @@
 package org.choongang.admin.controllers;
 
-import org.choongang.admin.adminmain.AdminMainRouter;
 import org.choongang.global.AbstractController;
 import org.choongang.global.Controller;
 import org.choongang.global.ControllerLocator;
@@ -39,7 +38,7 @@ public class LectureAdminController extends AbstractController {
             case 1: controller = locator.find(LectureMenu.SELECTCLASS); break; //반 선택
             case 2: controller = locator.find(LectureMenu.BACK); break; //뒤로 가기->admin main화면
             default:
-                AdminMainRouter.getInstance().change(LectureMenu.LECTUREMAIN);
+               controller = locator.find(LectureMenu.LECTUREMAIN);
         }
 
         if(controller != null){

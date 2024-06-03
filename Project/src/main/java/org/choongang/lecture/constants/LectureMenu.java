@@ -11,4 +11,5 @@ public enum LectureMenu implements Menu {
     LECTURESUBMAIN, //학급관리 서브메인화면=학급 추가, 수정 선택 화면
     ADDLECTURE, //학급 추가하기
     MODLECTURE, //학급 수정하기
+    LISTLECTURE // 학급 목록
 }

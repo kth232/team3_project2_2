@@ -48,7 +48,7 @@ public class AdminControllerLocator extends AbstractControllerLocator {
             controller = new StartMainController();
         }
         controller.setMenu(menu);
-        controllers.put(menu,controller);
+        controllers.put(menu, controller);
         return controller;
     }
 }

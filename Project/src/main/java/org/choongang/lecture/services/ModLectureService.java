@@ -15,5 +15,5 @@ public class ModLectureService implements Service<Lecture> {
 
         //데이터베이스에 영구저장
 
-    } //회원가입 기능
+    } //학급 수정 기능
 }

@@ -4,7 +4,7 @@ import org.choongang.global.AbstractController;
 import org.choongang.global.Router;
 import org.choongang.global.Service;
 import org.choongang.start.constants.StartMenu;
-import org.choongang.lecture.services.LectureServiceLocator;
+import org.choongang.start.services.StartServiceLocator;
 import org.choongang.start.startmain.StartMainRouter;
 import org.choongang.template.Templates;
 
@@ -51,12 +51,11 @@ public class JoinController extends AbstractController {
                 .confirmPw(confirmPw)
                 .build(); //컨트롤러쪽에 사용자가 입력한 데이터 유입
 
-
         Router router = StartMainRouter.getInstance();
         try{
             //회원가입 처리
             // 기능 부분 JoinService와 연동
-            Service service = LectureServiceLocator.getInstance().find(StartMenu.JOIN);
+            Service service = StartServiceLocator.getInstance().find(StartMenu.JOIN);
             //JoinService에서 사용자 회원가입 처리기능 담당
             service.process(form); //주입
 
@@ -68,9 +67,5 @@ public class JoinController extends AbstractController {
             System.err.println(e.getMessage());
             router.change(StartMenu.JOIN);
         }
-
-
     }
-
-
 }
