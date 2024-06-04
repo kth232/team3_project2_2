@@ -39,6 +39,7 @@ public class Student503Controller extends AbstractController {
             case 2: controller = locator.find(StSMMenu.MODSTUDENT); break; // 학생 정보 수정하기
             default:
                 AdminMainRouter.getInstance().change(StSMMenu.LISTSTUDENT503);
+                return;
         }
 
         if (controller != null) {
