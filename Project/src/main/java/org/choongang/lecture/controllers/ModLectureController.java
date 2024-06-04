@@ -1,14 +1,15 @@
 package org.choongang.lecture.controllers;
 
 import org.choongang.admin.adminmain.AdminMainRouter;
-import org.choongang.global.*;
-import org.choongang.lecture.Sub_Le_AdminControllerLocator;
+import org.choongang.global.AbstractController;
+import org.choongang.global.Router;
+import org.choongang.global.Service;
 import org.choongang.lecture.constants.LectureMenu;
 import org.choongang.lecture.services.LectureServiceLocator;
-import org.choongang.start.controllers.InputJoin;
 import org.choongang.template.Templates;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class ModLectureController extends AbstractController {
     @Override
@@ -36,11 +37,12 @@ public class ModLectureController extends AbstractController {
 
         String ClassState = promptWithValidation("학급 상태: ",s -> !s.isBlank()); //공백일 경우 반복
 
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         SearchLecture form = SearchLecture.builder() // DTO
                 .Subject(Subject)
                 .ClassNm(ClassNm)
-                .OpeningDt(OpeningDt)
-                .CompletionDt(Integer.parseInt(CompletionDt))
+                .OpeningDt(LocalDateTime.parse(OpeningDt, formatter))
+                .CompletionDt(LocalDateTime.parse(CompletionDt, formatter))
                 .ClassState(ClassState)
                 .build(); //컨트롤러쪽에 사용자가 입력한 데이터 유입
 

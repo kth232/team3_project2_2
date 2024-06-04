@@ -15,7 +15,7 @@ public class GradeService implements Service<Grade>, Retrivable<SearchGrade,Grad
     public GradeService(GradeMapper mapper){
         this.mapper = mapper;
     }
-
+    //매퍼
     @Override
     public void process(Grade form) {
 

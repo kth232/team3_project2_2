@@ -1,9 +1,9 @@
 package org.choongang.start.startmain;
 
 import org.choongang.global.*;
-import org.choongang.start.startmain.controllers.StartMainController;
 import org.choongang.start.StartControllerLocator;
 import org.choongang.start.constants.StartMenu;
+import org.choongang.start.startmain.controllers.StartMainController;
 
 public class StartMainRouter implements Router, Startable {
     private static Router instance;
@@ -37,5 +37,4 @@ public class StartMainRouter implements Router, Startable {
             change(StartMenu.STARTMAIN); //첫 화면은 StartMain 컨트롤러 출력 화면
         }
     }
-
 }
