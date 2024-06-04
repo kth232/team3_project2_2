@@ -12,7 +12,9 @@ public class ClassListTpl implements Template {
     public String getTpl() {
         StringBuffer sb = new StringBuffer(1000);
         sb.append("반 목록\n");
-        sb.append(hook.get());
+        if (hook != null) {
+            sb.append(hook.get());
+        }
         
         return sb.toString();
     }

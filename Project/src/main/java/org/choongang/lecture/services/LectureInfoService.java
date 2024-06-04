@@ -1,14 +1,14 @@
 package org.choongang.lecture.services;
 
-import org.choongang.admin.controllers.LectureSearch;
 import org.choongang.global.Retrivable;
 import org.choongang.global.Service;
+import org.choongang.lecture.controllers.SearchLecture;
 import org.choongang.lecture.entities.Lecture;
 import org.choongang.lecture.mapper.LectureMapper;
 
 import java.util.List;
 
-public class LectureInfoService implements Service<Lecture>, Retrivable<LectureSearch, Lecture> {
+public class LectureInfoService implements Service<Lecture>, Retrivable<SearchLecture, Lecture> {
 
     private final LectureMapper mapper;
 
@@ -17,7 +17,7 @@ public class LectureInfoService implements Service<Lecture>, Retrivable<LectureS
     }
 
     @Override
-    public List<Lecture> getList(LectureSearch search) {
+    public List<Lecture> getList(SearchLecture search) {
         return mapper.getList(search);
     }
 }

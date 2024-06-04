@@ -12,5 +12,6 @@ public class Member { //데이터 베이스에서 조회한 레코드 담는 클
     private String userId;
     private String userPw;
     private String userNm;
+    private String userJob; //직책
     private LocalDateTime regDt; //현재날짜
 }
