@@ -38,7 +38,8 @@ public class GradeServiceLocator extends AbstractServiceLocator {
 
         GradeMenu gradeMenu = (GradeMenu) menu;
         switch (gradeMenu){
-            case CLASSCHOICE: service = new StudentGradeService(studentGradeMapper()); break;
+            case CLASSCHOICE:
+            case LISTGRADE: service = new StudentGradeService(studentGradeMapper()); break;
         }
 
         return service;
