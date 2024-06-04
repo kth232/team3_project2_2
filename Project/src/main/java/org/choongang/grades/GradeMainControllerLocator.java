@@ -7,10 +7,7 @@ import org.choongang.global.ControllerLocator;
 import org.choongang.global.Menu;
 import org.choongang.grades.constants.GradeMenu;
 import org.choongang.grades.controllers.GSelectController;
-<<<<<<< HEAD:Project/src/main/java/org/choongang/grades/GradeMainControllerLocator.java
 import org.choongang.start.startmain.controllers.StartMainController;
-=======
->>>>>>> 873a9edb4eeb6a9232874524515af18ccdf43d8c:Project/src/main/java/org/choongang/grades/GradeAdminControllerLocator.java
 
 public class GradeMainControllerLocator extends AbstractControllerLocator {
     private static ControllerLocator instance;

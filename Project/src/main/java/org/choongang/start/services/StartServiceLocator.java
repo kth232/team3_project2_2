@@ -10,8 +10,6 @@ import org.choongang.start.validators.LoginValidator;
 public class StartServiceLocator extends AbstractServiceLocator {
     private static ServiceLocator instance;
 
-    protected static ServiceLocator instance;
-
     public static ServiceLocator getInstance(){
         if(instance == null){
             instance = new StartServiceLocator();
@@ -44,28 +42,16 @@ public class StartServiceLocator extends AbstractServiceLocator {
             return service;
         } //이미 생성된 객체 있으면 생성되어있는 객체를 반환값으로 넘김
 
-<<<<<<< HEAD
         //없으면 추가
         if (menu instanceof StartMenu) {
             StartMenu startMenu = (StartMenu) menu;
-            switch (startMenu) {
-                case JOIN:
-                    service = new JoinService();
+            switch (startMenu){
+                case JOIN: service = new JoinService(memberMapper(),joinValidator());
                     break;
-                case LOGIN:
-                    service = new LoginService();
+                case LOGIN: service = new LoginService(memberMapper(), loginValidator());
                     break;
             }
-=======
 
-        //없으면 menu에 해당되는 객체 생성 후 추가
-        StartMenu startMenu = (StartMenu) menu;
-        switch (startMenu){
-            case JOIN: service = new JoinService(memberMapper(),joinValidator());
-                break;
-            case LOGIN: service = new LoginService(memberMapper(), loginValidator());
-                break;
->>>>>>> 873a9edb4eeb6a9232874524515af18ccdf43d8c
         }
         services.put(menu,service);
         return service;
