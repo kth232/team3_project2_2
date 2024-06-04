@@ -7,15 +7,16 @@ import org.choongang.global.ControllerLocator;
 import org.choongang.global.Menu;
 import org.choongang.grades.constants.GradeMenu;
 import org.choongang.grades.controllers.GSelectController;
+import org.choongang.start.startmain.controllers.StartMainController;
 
-public class GradeAdminControllerLocator extends AbstractControllerLocator {
+public class GradeMainControllerLocator extends AbstractControllerLocator {
     private static ControllerLocator instance;
 
-    private GradeAdminControllerLocator(){}
+    private GradeMainControllerLocator(){}
 
     public static ControllerLocator getInstance(){
         if(instance == null){
-            instance = new GradeAdminControllerLocator();
+            instance = new GradeMainControllerLocator();
         }
         return instance;
     }
@@ -31,12 +32,14 @@ public class GradeAdminControllerLocator extends AbstractControllerLocator {
         if(menu instanceof GradeMenu){
             GradeMenu gradeMenu = (GradeMenu) menu;
             switch (gradeMenu){
-                case SELECT : controller = new GSelectController(); break;
+                case CLASSCHOICE: controller = new GSelectController(); break;
+                case BACK: controller = new AdminMainController(); break;
             }
         } else {
-            controller = new AdminMainController();
+            controller = new StartMainController();
         }
-
+        controller.setMenu(menu);
+        controllers.put(menu,controller);
         return controller;
     }
 }

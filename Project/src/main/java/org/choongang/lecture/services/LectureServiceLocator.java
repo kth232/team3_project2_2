@@ -34,7 +34,7 @@ public class LectureServiceLocator extends AbstractServiceLocator {
 
         //없으면 추가
         LectureMenu lectureMenu = (LectureMenu) menu;
-        System.out.println("메뉴0?");
+        //System.out.println("메뉴0?");
         System.out.println(menu);
         switch (lectureMenu){
             case ADDLECTURE: service = new AddLectureService();
@@ -43,7 +43,7 @@ public class LectureServiceLocator extends AbstractServiceLocator {
                 break;
             case LISTLECTURE: service = new LectureInfoService(selectMapper());
         }
-        System.out.println("메뉴?");
+        //System.out.println("메뉴?");
         System.out.println(lectureMenu);
         return service;
     }

@@ -8,6 +8,9 @@ import org.choongang.lecture.constants.LectureMenu;
 import org.choongang.lecture.services.LectureServiceLocator;
 import org.choongang.template.Templates;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 public class AddLectureController extends AbstractController {
     @Override
     public void show() {
@@ -33,12 +36,12 @@ public class AddLectureController extends AbstractController {
         String CompletionDt = promptWithValidation("수료일: ",s -> !s.isBlank()); //공백일 경우 반복
 
         String ClassState = promptWithValidation("학급 상태: ",s -> !s.isBlank()); //공백일 경우 반복
-
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd"); //포맷 패턴으로 입력값 받기
         SearchLecture form = SearchLecture.builder() // DTO
                 .Subject(Subject)
                 .ClassNm(ClassNm)
-                .OpeningDt(OpeningDt) //왜 개설일은 스트링으로 들어가지??
-                .CompletionDt(Integer.parseInt(CompletionDt))
+                .OpeningDt(LocalDateTime.parse(OpeningDt, formatter)) 
+                .CompletionDt(LocalDateTime.parse(CompletionDt, formatter))
                 .ClassState(ClassState)
                 .build(); //컨트롤러쪽에 사용자가 입력한 데이터 유입
 

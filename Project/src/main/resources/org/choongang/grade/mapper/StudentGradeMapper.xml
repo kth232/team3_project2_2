@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.choongang.grades.mapper.StudentGradeMapper">
+    <resultMap id="gradeMap" type="org.choongang.grades.entities.StudentGrade">
+        <result column="STUDENT_NAME" property="studentName" />
+        <result column="STUDENT_CLASS" property="studentClass" />
+        <result column="STUDENT_SUBJECT" property="studentSubject" />
+        <result column="STUDENT_SCORE" property="studentScore" />
+
+    </resultMap>
+
+    <select id="getList" resultMap="gradeMap">
+        <bind name="Keyword" value="'%' + _parameter.getKeyword() + '%'" />
+        SELECT * FROM STUDENTGRADE
+        <where>
+            <if test="keyword != null">
+                STUDENT_CLASS LIKE #{Keyword}
+            </if>
+        </where>
+        ORDER BY GRADE
+    </select>
+
+    <delete id="delete">
+        DELETE FROM STUDENTGRADE WHERE STUDENT_CLASS=#{studentClass} AND STUDENT_NAME=#{studentName} AND STUDENT_SUBJECT=#{studentSubject}
+    </delete>
+
+    <update id="modify">
+        UPDATE STUDENTGRADE
+            SET
+                STUDENT_SCORE=#{studentScore}
+        WHERE STUDENT_CLASS=#{studentClass} AND STUDENT_NAME=#{studentName} AND STUDENT_SUBJECT=#{studentSubject}
+    </update>
+</mapper>

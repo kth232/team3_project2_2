@@ -2,7 +2,7 @@ package org.choongang.admin.controllers;
 
 import org.choongang.admin.adminmain.AdminMainRouter;
 import org.choongang.admin.constants.AdminMenu;
-import org.choongang.grades.GradeAdminControllerLocator;
+import org.choongang.grades.GradeMainControllerLocator;
 import org.choongang.grades.constants.GradeMenu;
 import org.choongang.global.AbstractController;
 import org.choongang.global.Controller;
@@ -18,11 +18,11 @@ public class GradeAdminController extends AbstractController {
     @Override
     public void prompt() {
         while(true){
-            System.out.println("메뉴 선택");
+            System.out.println("메뉴 선택 : ");
             String menu = sc.nextLine();
             try{
                 int m = Integer.parseInt(menu);
-                if(m >= 1 && m <= 4){
+                if(m >= 1 && m <= 2){
                     change(m);
                     break;
                 }
@@ -33,11 +33,11 @@ public class GradeAdminController extends AbstractController {
     }
 
     private void change(int menuNo){
-        ControllerLocator locator = GradeAdminControllerLocator.getInstance();
+        ControllerLocator locator = GradeMainControllerLocator.getInstance();
         Controller controller = null;
         switch(menuNo){
             case 1:
-                controller = locator.find(GradeMenu.SELECT);
+                controller = locator.find(GradeMenu.CLASSCHOICE);
                 break;
             default:
                 AdminMainRouter.getInstance().change(AdminMenu.ADMINMAIN);
