@@ -42,14 +42,16 @@ public class StartServiceLocator extends AbstractServiceLocator {
             return service;
         } //이미 생성된 객체 있으면 생성되어있는 객체를 반환값으로 넘김
 
+        //없으면 추가
+        if (menu instanceof StartMenu) {
+            StartMenu startMenu = (StartMenu) menu;
+            switch (startMenu){
+                case JOIN: service = new JoinService(memberMapper(),joinValidator());
+                    break;
+                case LOGIN: service = new LoginService(memberMapper(), loginValidator());
+                    break;
+            }
 
-        //없으면 menu에 해당되는 객체 생성 후 추가
-        StartMenu startMenu = (StartMenu) menu;
-        switch (startMenu){
-            case JOIN: service = new JoinService(memberMapper(),joinValidator());
-                break;
-            case LOGIN: service = new LoginService(memberMapper(), loginValidator());
-                break;
         }
         services.put(menu,service);
         return service;

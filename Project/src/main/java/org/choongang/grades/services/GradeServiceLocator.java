@@ -10,6 +10,7 @@ import org.choongang.grades.mapper.GradeMapper;
 import org.choongang.grades.mapper.StudentGradeMapper;
 
 public class GradeServiceLocator extends AbstractServiceLocator {
+
     private static ServiceLocator instance;
 
     public static ServiceLocator getInstance(){
