@@ -1,6 +1,7 @@
 package org.choongang.studentManagement.controllers;
 
 import org.choongang.admin.adminmain.AdminMainRouter;
+import org.choongang.admin.constants.AdminMenu;
 import org.choongang.global.AbstractController;
 import org.choongang.global.Router;
 import org.choongang.global.Service;
@@ -42,11 +43,11 @@ public class ModStudentController extends AbstractController {
             service.process(form); //주입
 
             // 추가 성공 시 추가한 데이터 출력 후 관리 페이지로 이동
-            router.change(StSMMenu.STUDENTMAIN);
+            router.change(AdminMenu.STUDENT);
         } catch (RuntimeException e) {
             // 추가 실패 시 서브메인 페이지로 이동
             System.err.println(e.getMessage());
-            router.change(StSMMenu.STUDENTMAIN);
+            router.change(AdminMenu.STUDENT);
         }
     }
 }

@@ -13,10 +13,7 @@ import org.choongang.template.lecture.SubLectureTpl;
 import org.choongang.template.start.JoinTpl;
 import org.choongang.template.start.LoginTpl;
 import org.choongang.template.start.StartMainTpl;
-import org.choongang.template.studentManagement.Student502ListTpl;
-import org.choongang.template.studentManagement.Student503ListTpl;
-import org.choongang.template.studentManagement.StudentAddTpl;
-import org.choongang.template.studentManagement.StudentModTpl;
+import org.choongang.template.studentManagement.*;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -54,7 +51,7 @@ public class Templates {
         }
         if (menu instanceof AdminMenu adminMenu) {
             switch(adminMenu) {
-                case STUDENT: tpl = new StudentTpl(); break;
+                case STUDENT: tpl = new StudentAdminTpl(); break;
                 case ATTENDANCE: tpl = new AttendanceTpl(); break;
                 case GRADE: tpl = new GradeTpl(); break;
                 case LECTURE: tpl = new LectureTpl(); break;
