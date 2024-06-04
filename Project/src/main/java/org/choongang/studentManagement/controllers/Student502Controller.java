@@ -35,7 +35,7 @@ public class Student502Controller extends AbstractController {
         ControllerLocator locator = SubStudentManagementControllerLocator.getInstance();
         Controller controller = null;
         switch(menuNo) {
-            case 1: controller = locator.find(StSMMenu.ADDSTUDENT); break; // 학생 정보 추가하기
+            case 1: controller = locator.find(StSMMenu.ADDSTUDENT); break; // 학생 추가하기
             case 2: controller = locator.find(StSMMenu.MODSTUDENT); break; // 학생 정보 수정하기
             default:
                 AdminMainRouter.getInstance().change(StSMMenu.LISTSTUDENT502);
