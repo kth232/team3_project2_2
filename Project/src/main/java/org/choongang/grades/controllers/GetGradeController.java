@@ -20,7 +20,7 @@ public class GetGradeController extends AbstractController {
     public void prompt() {
         try{
             Retrivable<SearchGrade, Grade> service = (Retrivable<SearchGrade, Grade>) GradeServiceLocator.getInstance().find(GradeMenu.LISTGRADE);
-            System.out.println("유입2");
+            System.out.println("유입3 getgradeC");
             System.out.println(service);
             String keyword = promptWithValidation("검색어 입력:", s -> !s.isBlank());
 
