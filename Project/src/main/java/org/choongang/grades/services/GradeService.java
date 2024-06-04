@@ -25,4 +25,5 @@ public class GradeService implements Service<Grade>, Retrivable<SearchGrade,Grad
     public List<Grade> getList() {
         return mapper.getList();
     }
+
 }
