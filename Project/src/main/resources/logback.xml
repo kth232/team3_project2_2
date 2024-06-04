@@ -15,4 +15,5 @@
     <logger name="org.choongang.grade.mapper" level="DEBUG" />
     <logger name="org.choongang.studentgrade.mapper" level="DEBUG" />
     <logger name="org.choongang.lecture.mapper" level="INFO" />
+    <logger name="org.choongang.studentManagement.mapper" level="INFO" />
 </configuration>

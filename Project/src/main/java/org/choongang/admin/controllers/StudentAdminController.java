@@ -1,7 +1,5 @@
 package org.choongang.admin.controllers;
 
-import org.choongang.admin.adminmain.AdminMainRouter;
-import org.choongang.admin.constants.AdminMenu;
 import org.choongang.global.AbstractController;
 import org.choongang.global.Controller;
 import org.choongang.global.ControllerLocator;
@@ -38,9 +36,9 @@ public class StudentAdminController extends AbstractController {
         switch(menuNo) {
             case 1: controller = locator.find(StSMMenu.LISTSTUDENT502); break; // 502호 학생 정보 조회하기
             case 2: controller = locator.find(StSMMenu.LISTSTUDENT503); break; // 503호 학생 정보 조회하기
+            case 3: controller = locator.find(StSMMenu.BACK); break; //뒤로 가기
             default:
-                AdminMainRouter.getInstance().change(AdminMenu.STUDENT);
-                return;
+                controller = locator.find(StSMMenu.STUDENTMAIN);
         }
 
         if (controller != null) {
