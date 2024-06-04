@@ -13,16 +13,16 @@ import java.util.stream.Collectors;
 public class Select502StudentController extends AbstractController {
     @Override
     public void show() {
-
+        System.out.println("502호를 선택하였습니다" );
+        Templates.getInstance().render(StSMMenu.LISTSTUDENT502);
     }
 
     @Override
     public void prompt() {
         try {
             Retrivable<SearchStudent, StudentManagement> service = (Retrivable<SearchStudent, StudentManagement>) StudentServiceLocator.getInstance().find(StSMMenu.LISTSTUDENT502);
+            String keyword = promptWithValidation("학생의 이름을 입력하세요:", s -> !s.isBlank());
             System.out.println(service);
-            String keyword = promptWithValidation("검색어 입력:", s -> !s.isBlank());
-
             SearchStudent search = SearchStudent.builder()
                     .keyword(keyword)
                     .build();

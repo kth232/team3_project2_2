@@ -4,7 +4,7 @@ import org.choongang.admin.adminmain.AdminMainRouter;
 import org.choongang.global.AbstractController;
 import org.choongang.global.Controller;
 import org.choongang.global.ControllerLocator;
-import org.choongang.studentManagement.SubStudentManagementControllerLocator;
+import org.choongang.studentManagement.StudentManagementControllerLocator;
 import org.choongang.studentManagement.constants.StSMMenu;
 
 public class StudentAdminController extends AbstractController {
@@ -32,7 +32,7 @@ public class StudentAdminController extends AbstractController {
         }
     }
     private void change(int menuNo) {
-        ControllerLocator locator = SubStudentManagementControllerLocator.getInstance();
+        ControllerLocator locator = StudentManagementControllerLocator.getInstance();
         Controller controller = null;
         switch(menuNo) {
             case 1: controller = locator.find(StSMMenu.LISTSTUDENT502); break; // 502호 학생 정보 조회하기
