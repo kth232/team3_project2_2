@@ -10,13 +10,16 @@
         <result column="STUDENT_SCORE" property="studentScore" />
     </resultMap>
 
+
     <select id="getList" resultMap="studentgradeMap">
-        <bind name="pKeyward" value = "'%'+ _parameter + '%'" />
+        <bind name="pKeyword" value = "'%'+ _parameter.getKeyword() + '%'" />
         SELECT * FROM STUDENTGRADE
         <where>
-            <if test="student_class != null">
-                STUDENT_CLASS = #{studentClass}
+            <if test="keyword != null">
+                STUDENT_CLASS LIKE #{pKeyword}
             </if>
         </where>
+        ORDER BY STUDENT_CLASS
     </select>
+
 </mapper>
