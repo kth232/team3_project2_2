@@ -11,7 +11,7 @@
     </root>
 
     <!--매퍼가 추가되면 해당 경로를 더 추가하여 로깅이 될수 있도록 하면 된다.-->
-    <logger name="org.choongang.start.member.mapper" level="DEBUG" />
+    <logger name="org.choongang.start.member.mapper" level="INFO" />
     <logger name="org.choongang.grade.mapper" level="DEBUG" />
     <logger name="org.choongang.lecture.mapper" level="INFO" />
 </configuration>
