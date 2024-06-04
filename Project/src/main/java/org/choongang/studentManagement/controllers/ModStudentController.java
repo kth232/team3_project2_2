@@ -46,7 +46,7 @@ public class ModStudentController extends AbstractController {
         } catch (RuntimeException e) {
             // 추가 실패 시 서브메인 페이지로 이동
             System.err.println(e.getMessage());
-            router.change(StSMMenu.STUDENTSUBMAIN);
+            router.change(StSMMenu.STUDENTMAIN);
         }
     }
 }

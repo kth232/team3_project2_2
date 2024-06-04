@@ -13,7 +13,10 @@ import org.choongang.template.lecture.SubLectureTpl;
 import org.choongang.template.start.JoinTpl;
 import org.choongang.template.start.LoginTpl;
 import org.choongang.template.start.StartMainTpl;
-
+import org.choongang.template.studentManagement.Student502ListTpl;
+import org.choongang.template.studentManagement.Student503ListTpl;
+import org.choongang.template.studentManagement.StudentAddTpl;
+import org.choongang.template.studentManagement.StudentModTpl;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -69,8 +72,17 @@ public class Templates {
         } else if (menu instanceof StSMMenu) {
             StSMMenu stSMMenu = (StSMMenu) menu;
             switch (stSMMenu) {
-                case STUDENTSUBMAIN :
-                    tpl = new SubLectureTpl();
+                case ADDSTUDENT :
+                    tpl = new StudentAddTpl();
+                    break;
+                case MODSTUDENT :
+                    tpl = new StudentModTpl();
+                    break;
+                case  LISTSTUDENT502 :
+                    tpl = new Student502ListTpl();
+                    break;
+                case   LISTSTUDENT503 :
+                    tpl = new Student503ListTpl();
                     break;
             }
         } else if (menu instanceof LectureMenu) {

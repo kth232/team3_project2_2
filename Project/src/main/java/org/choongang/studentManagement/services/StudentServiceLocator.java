@@ -30,7 +30,6 @@ public class StudentServiceLocator extends AbstractServiceLocator {
             return service;
         } //있으면 있는거 사용
 
-        //없으면 추가
         StSMMenu stsmMenu = (StSMMenu) menu;
         System.out.println(menu);
         switch (stsmMenu){

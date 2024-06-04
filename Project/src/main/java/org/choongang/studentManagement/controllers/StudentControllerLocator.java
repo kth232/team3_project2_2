@@ -5,14 +5,14 @@ import org.choongang.global.Controller;
 import org.choongang.global.ControllerLocator;
 import org.choongang.global.Menu;
 
-public class SelectStudentControllerLocator extends AbstractControllerLocator {
+public class StudentControllerLocator extends AbstractControllerLocator {
     private static ControllerLocator instance;
 
-    private SelectStudentControllerLocator(){}
+    private StudentControllerLocator(){}
 
     public static ControllerLocator getInstance() {
         if(instance == null) {
-            instance = new SelectStudentControllerLocator();
+            instance = new StudentControllerLocator();
         }
         return instance;
     }
