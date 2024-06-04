@@ -24,6 +24,7 @@ public class GetGradeController extends AbstractController {
             System.out.println(service);
             String keyword = promptWithValidation("검색어 입력:", s -> !s.isBlank());
 
+            //키워드로 찾기
             SearchGrade search = SearchGrade.builder()
                     .keyword(keyword)
                     .build();
