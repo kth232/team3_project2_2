@@ -9,7 +9,7 @@ public class ASelectController extends AbstractController {
     @Override
     public void show() {
         Templates.getInstance().render(GradeMenu.SELECT, () -> {
-            return "1. 1반\n2. 2반\n";
+            return "1. 502호\n2. 503호\n";
         });
     }
 
