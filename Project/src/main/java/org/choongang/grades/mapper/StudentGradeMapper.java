@@ -11,4 +11,6 @@ public interface StudentGradeMapper {
 
     @Select("SELECT DISTINCT STUDENT_CLASS FROM STUDENTGRADE")
     List<String> getClassList();
+    int delete(StudentGrade form);
+    int modify(StudentGrade form);
 }

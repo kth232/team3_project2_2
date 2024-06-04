@@ -1,5 +1,6 @@
 package org.choongang.global;
 
+
 import org.choongang.start.constants.StartMenu;
 import org.choongang.start.startmain.StartMainRouter;
 import org.choongang.template.Templates;
@@ -75,6 +76,7 @@ public abstract class AbstractController implements Controller {
     }
 
 
+
     private void change(int menuNo) {
         StartMenu startmenu = null;
         switch(menuNo) {
@@ -86,4 +88,6 @@ public abstract class AbstractController implements Controller {
         // 메뉴 컨트롤러 변경 처리 - Router
         StartMainRouter.getInstance().change(startmenu);
     }
+
+
 }
