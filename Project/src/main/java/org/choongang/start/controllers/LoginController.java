@@ -1,11 +1,13 @@
 package org.choongang.start.controllers;
 
+import org.choongang.admin.adminmain.AdminMainRouter;
 import org.choongang.admin.constants.AdminMenu;
 import org.choongang.global.AbstractController;
 import org.choongang.global.Controller;
 import org.choongang.global.ControllerLocator;
 import org.choongang.global.Service;
 import org.choongang.start.StartControllerLocator;
+import org.choongang.start.UserSession;
 import org.choongang.start.constants.StartMenu;
 import org.choongang.start.services.StartServiceLocator;
 import org.choongang.start.startmain.StartMainRouter;
@@ -45,9 +47,12 @@ public class LoginController extends AbstractController {
             //LoginService에서 사용자 로그인 처리기능 담당
             service.process(form);
 
+            System.out.println("\n"+UserSession.getInstance().getUserName() +" "+ UserSession.getInstance().getUserJob()+"님, 로그인하셨습니다.\n");
+
             //로그인 성공시 Admin메인 페이지로 이동(1~4번 고르는 화면)
             ControllerLocator locator = StartControllerLocator.getInstance();
             Controller controller = locator.find(AdminMenu.ADMINMAIN);
+           // AdminMainRouter.getInstance().change(AdminMenu.ADMINMAIN);
 
             if (controller != null) {
                 controller.run();

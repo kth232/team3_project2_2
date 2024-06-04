@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.choongang.grades.mapper.GradeMapper">
+
+    <resultMap id="gradeMap" type="org.choongang.grades.entities.Grade">
+        <result column="GRADE" property="grade" />
+        <result column="LOSCORE" property="low_score" />
+        <result column="HISCORE" property="high_score" />
+    </resultMap>
+
+    <select id="getList" resultMap="gradeMap">
+        SELECT * FROM GRADE ORDER BY GRADE
+    </select>
+
+    <!--
+    <select id="getClassGrades">
+        SELECT S.NAME, S.SCORE, G.GRADE FROM STUDENT_GRADE S, GRADES G
+        WHERE S.SCORE BETWEEN G.LOSCORE AND G.HISCORE;
+    </select>
+    -->
+    <select id="getClassGrades" resultMap="gradeMap">
+        SELECT S.NAME, S.SCORE, G.GRADE FROM STUDENTSCORE S, GRADES G
+        WHERE S.SCORE BETWEEN G.LOSCORE AND G.HISCORE;
+    </select>
+
+    <update id="modifyGrades">
+        UPDATE STUDENT_GRADE
+        <set>
+            <if test="score != null">
+                SCORE=#{score},
+            </if>
+        </set>
+        WHERE NAME=#{Name}
+    </update>
+</mapper>

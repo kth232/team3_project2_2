@@ -1,6 +1,6 @@
 package org.choongang.lecture.mapper;
 
-import org.choongang.admin.controllers.LectureSearch;
+import org.choongang.lecture.controllers.SearchLecture;
 import org.choongang.lecture.entities.Lecture;
 
 import java.util.List;
@@ -10,7 +10,7 @@ import java.util.List;
  * LectureMapper에 정의한 select, insert, update, delete 태그의 id명으로 추상 메서드만 만들어도 서로 연결됨
  */
 public interface LectureMapper {
-    List<Lecture> getList(LectureSearch search);
+    List<Lecture> getList(SearchLecture search);
     int register(Lecture lecture);
     int update(Lecture lecture);
 }

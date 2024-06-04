@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.choongang.grades.mapper.StudentGradeMapper">
+    <resultMap id="gradeMap" type="org.choongang.grades.entities.StudentGrade">
+        <result column="STUDENT_NAME" property="studentName" />
+        <result column="STUDENT_CLASAS" property="studentClass" />
+        <result column="STUDENT_SUBJECT" property="studentSubject" />
+        <result column="STUDENT_SCORE" property="studentScore" />
+
+    </resultMap>
+
+    <select id="getList" resultMap="gradeMap">
+        <bind name="pKeyword" value="'%' + _parameter.getKeyword() + '%'" />
+        SELECT * FROM STUDENTGRADE
+        <where>
+            <if test="keyword != null">
+                CONCAT(SUBJECT, STUDENT_CLASS) LIKE #{pKeyword}
+            </if>
+        </where>
+        ORDER BY GRADE
+    </select>
+
+</mapper>
