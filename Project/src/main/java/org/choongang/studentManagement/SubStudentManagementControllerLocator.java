@@ -8,7 +8,7 @@ import org.choongang.global.Menu;
 import org.choongang.studentManagement.constants.StSMMenu;
 import org.choongang.studentManagement.controllers.AddStudentController;
 import org.choongang.studentManagement.controllers.ModStudentController;
-import org.choongang.studentManagement.controllers.SubStudentController;
+import org.choongang.studentManagement.controllers.Student503Controller;
 
 public class SubStudentManagementControllerLocator extends AbstractControllerLocator {
     private static ControllerLocator instance;
@@ -34,7 +34,7 @@ public class SubStudentManagementControllerLocator extends AbstractControllerLoc
             switch(stsmMenu) {
                 case ADDSTUDENT: controller = new AddStudentController(); break; // 학생 정보 추가하기
                 case MODSTUDENT: controller = new ModStudentController(); break; // 학생 정보 수정하기
-                default: controller = new SubStudentController(); break;
+                default: controller = new Student503Controller(); break;
             }
         }else {
             controller = new StudentAdminController();

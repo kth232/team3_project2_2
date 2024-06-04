@@ -19,5 +19,6 @@ public class Student503InfoService implements Service<StudentManagement>, Retriv
     @Override
     public List<StudentManagement> getList(SearchStudent search) {
         return mapper.get503StudentList();
+
     }
 }

@@ -8,17 +8,17 @@ import org.choongang.studentManagement.SubStudentManagementControllerLocator;
 import org.choongang.studentManagement.constants.StSMMenu;
 import org.choongang.template.Templates;
 
-public class SubStudentController extends AbstractController {
+public class Student502Controller extends AbstractController {
     @Override
     public void show() {
         //기본 출력 화면=서브메인
-        Templates.getInstance().render(StSMMenu.STUDENTMAIN);
+        Templates.getInstance().render(StSMMenu.LISTSTUDENT502);
     }
 
     @Override
     public void prompt() {
         while(true) {
-            System.out.print("메뉴 선택: ");
+            System.out.print("학생 추가와 수정 중 선택해주세요");
             String menu = sc.nextLine();
             try {
                 int m = Integer.parseInt(menu);
@@ -38,8 +38,7 @@ public class SubStudentController extends AbstractController {
             case 1: controller = locator.find(StSMMenu.ADDSTUDENT); break; // 학생 정보 추가하기
             case 2: controller = locator.find(StSMMenu.MODSTUDENT); break; // 학생 정보 수정하기
             default:
-                AdminMainRouter.getInstance().change(StSMMenu.STUDENTMAIN); // 서브메인
-                return;
+                AdminMainRouter.getInstance().change(StSMMenu.LISTSTUDENT502);
         }
 
         if (controller != null) {
