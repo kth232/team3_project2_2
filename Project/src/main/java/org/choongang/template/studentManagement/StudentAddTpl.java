@@ -9,7 +9,7 @@ public class StudentAddTpl implements Template {
         StringBuffer sb = new StringBuffer(2000);
 
         // 추가사항
-        sb.append("학생 정보 추가 페이지\n");
+        sb.append("❤학생 정보 추가 페이지❤\n");
 
         sb.append(Templates.getInstance().line());
 
