@@ -27,7 +27,7 @@ public class StudentAdminController extends AbstractController {
                     break;
                 }
             } catch (Exception e) {
-                System.err.println("메뉴 1, 2 중에서 선택하세요");
+                System.err.println("메뉴 1과 2 중에서 선택하세요");
             }
         }
     }

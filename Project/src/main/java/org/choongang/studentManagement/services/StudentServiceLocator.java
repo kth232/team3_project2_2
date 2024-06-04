@@ -42,7 +42,6 @@ public class StudentServiceLocator extends AbstractServiceLocator {
                 break;
             case LISTSTUDENT503: service = new Student503InfoService(selectMapper());
                 break;
-            default:
         }
         System.out.println(stsmMenu);
         return service;
