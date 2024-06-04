@@ -31,7 +31,7 @@ public class StudentManagementControllerLocator extends AbstractControllerLocato
         if(menu instanceof StSMMenu){
             StSMMenu stsmMenu = (StSMMenu) menu;
             switch(stsmMenu) {
-                case STUDENTCLASS : controller = new SelectStudentController(); break; // 반 선택하기
+                case STUDENTMAIN : controller = new SelectStudentController(); break; // 반 선택하기
                 case BACK: controller = new AdminMainController(); break; // 뒤로 가기
             }
         }else {

@@ -19,7 +19,7 @@ public class SelectStudentController extends AbstractController {
     @Override
     public void prompt() {
         try {
-            Retrivable<SearchStudent, StudentManagement> service = (Retrivable<SearchStudent, StudentManagement>) StudentServiceLocator.getInstance().find(StSMMenu.LISTSTUDENT);
+            Retrivable<SearchStudent, StudentManagement> service = (Retrivable<SearchStudent, StudentManagement>) StudentServiceLocator.getInstance().find(StSMMenu.ADDSTUDENT);
             System.out.println(service);
             String keyword = promptWithValidation("검색어 입력:", s -> !s.isBlank());
 
@@ -30,7 +30,7 @@ public class SelectStudentController extends AbstractController {
             List<StudentManagement> items = service.getList(search);
             String str = items.stream().map(s -> String.format("학생 이름: %d, 반 정보: %s, 수강 과목: %s, 주소: %s, 전화번호: %s%n", s.getStudentName(), s.getStudentClass(), s.getStudentSubject(), s.getStudentAddress(), s.getStudentPhone()))
                     .collect(Collectors.joining("\n"));
-            Templates.getInstance().render(StSMMenu.STUDENTMAIN, () -> str);
+            Templates.getInstance().render(StSMMenu.ADDSTUDENT, () -> str);
         } catch (Exception e) {
             e.printStackTrace();
         }

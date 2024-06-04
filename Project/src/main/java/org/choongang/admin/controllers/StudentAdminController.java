@@ -38,7 +38,7 @@ public class StudentAdminController extends AbstractController {
             case 1: controller = locator.find(StSMMenu.LISTSTUDENT502); break; // 502호 학생 정보 조회하기
             case 2: controller = locator.find(StSMMenu.LISTSTUDENT503); break; // 503호 학생 정보 조회하기
             default:
-                AdminMainRouter.getInstance().change(StSMMenu.STUDENTSUBMAIN); // 서브메인
+                AdminMainRouter.getInstance().change(StSMMenu.STUDENTMAIN);
                 return;
         }
 
