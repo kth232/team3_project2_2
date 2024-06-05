@@ -11,6 +11,7 @@
 
     </resultMap>
 
+    <!--keyword - 데이터클래스에서 @Data 애노테이션의 get 메서드로 호출 -->
     <select id="getList" resultMap="gradeMap">
         <bind name="Keyword" value="'%' + _parameter.getKeyword() + '%'" />
         SELECT * FROM STUDENTGRADE
