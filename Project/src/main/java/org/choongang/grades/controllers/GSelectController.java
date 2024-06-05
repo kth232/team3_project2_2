@@ -31,11 +31,10 @@ public class GSelectController extends AbstractController {
             Retrivable<SearchGrade, StudentGrade> service = (Retrivable<SearchGrade,StudentGrade>) GradeServiceLocator.getInstance().find(GradeMenu.LISTGRADE);
         while(true) {
             System.out.println("성적조회를 원하시는 반 이름을 입력하세요.");
-            String keyword = promptWithValidation("반 입력:", s -> !s.isBlank());
+            String keyword = promptWithValidation("반 입력 : ", s -> !s.isBlank());
 
             SearchGrade search = SearchGrade.builder().keyword(keyword).build();
             List<StudentGrade> items = service.getList(search);
-
 
             System.out.println(Templates.getInstance().doubleLine());
             System.out.println("순번      클래스명        학생명     과목명     점수");
@@ -54,7 +53,6 @@ public class GSelectController extends AbstractController {
                     System.err.println("메뉴1, 2번 중에서 선택하세요.");
                     continue;
                 }
-
 
                 String _index = promptWithValidation("순번 선택: ", s -> !s.isBlank());
                 int index = Integer.parseInt(_index);
