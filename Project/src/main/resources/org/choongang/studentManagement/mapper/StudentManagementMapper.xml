@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.choongang.studentManagement.mapper.StudentManagementMapper">
+    <resultMap id="studentManagementMap" type="org.choongang.studentManagement.entities.StudentManagement">
+        <result column="STUDENT_NO" property="studentNo" />
+        <result column="STUDENT_NAME" property="studentName" />
+        <result column="STUDENT_CLASS" property="studentClass" />
+        <result column="STUDENT_SUBJECT" property="studentSubject" />
+        <result column="STUDENT_ADDRESS" property="studentAddress" />
+        <result column="STUDENT_PHONE" property="studentPhone" />
+    </resultMap>
+
+    <!-- 502호 학생 목록 조회 -->
+    <select id="get502StudentList" resultMap="studentManagementMap">
+        <bind name="pStudentName" value="'%' + _parameter.getStudentName() + '%'" />
+        <bind name="pStudentClass" value="'%' + _parameter.getStudentClass() + '%'" />
+        <bind name="pStudentSubject" value="'%' + _parameter.getStudentSubject() + '%'" />
+        <bind name="pStudentAddress" value="'%' + _parameter.getStudentAddress() + '%'" />
+        <bind name="pStudentPhone" value="'%' + _parameter.getStudentPhone() + '%'" />
+        SELECT * FROM (SELECT ROWNUM NUM, t.* FROM STUDENT t WHERE STUDENT_CLASS = '502호') m
+        <where>
+            <![CDATA[m.NUM >= {sRow} AND m.NUM <= {eRow}]]>
+            <if test="studentName != null">
+                AND STUDENT_NAME LIKE #{pStudentName}
+            </if>
+            <if test="studentClass != null">
+                AND STUDENT_CLASS LIKE #{pStudentClass}
+            </if>
+            <if test="studentSubject != null">
+                AND STUDENT_SUBJECT LIKE #{pStudentSubject}
+            </if>
+            <if test="studentAddress != null">
+                AND STUDENT_ADDRESS LIKE #{pStudentAddress}
+            </if>
+            <if test="studentPhone != null">
+                AND STUDENT_PHONE LIKE #{pStudentPhone}
+            </if>
+        </where>
+    </select>
+
+    <!-- 503호 학생 목록 조회 -->
+    <select id="get503StudentList" resultMap="studentManagementMap">
+        <bind name="pStudentName" value="'%' + _parameter.getStudentName() + '%'" />
+        <bind name="pStudentClass" value="'%' + _parameter.getStudentClass() + '%'" />
+        <bind name="pStudentSubject" value="'%' + _parameter.getStudentSubject() + '%'" />
+        <bind name="pStudentAddress" value="'%' + _parameter.getStudentAddress() + '%'" />
+        <bind name="pStudentPhone" value="'%' + _parameter.getStudentPhone() + '%'" />
+        SELECT * FROM (SELECT ROWNUM NUM, t.* FROM STUDENT t WHERE STUDENT_CLASS = '503호') m
+        <where>
+            <![CDATA[m.NUM >= {sRow} AND m.NUM <= {eRow}]]>
+            <if test="studentName != null">
+                AND STUDENT_NAME LIKE #{pStudentName}
+            </if>
+            <if test="studentClass != null">
+                AND STUDENT_CLASS LIKE #{pStudentClass}
+            </if>
+            <if test="studentSubject != null">
+                AND STUDENT_SUBJECT LIKE #{pStudentSubject}
+            </if>
+            <if test="studentAddress != null">
+                AND STUDENT_ADDRESS LIKE #{pStudentAddress}
+            </if>
+            <if test="studentPhone != null">
+                AND STUDENT_PHONE LIKE #{pStudentPhone}
+            </if>
+        </where>
+    </select>
+
+    <!-- 학생 추가 -->
+    <insert id="studentRegister">
+        <selectKey keyProperty="studentNo" order="BEFORE" resultType="long">
+            SELECT SEQ_STUDENT.NEXTVAL FROM DUAL
+        </selectKey>
+        INSERT INTO STUDENT (STUDENT_NO, STUDENT_NAME, STUDENT_CLASS, STUDENT_SUBJECT, STUDENT_ADDRESS, STUDENT_PHONE)
+        VALUES (#{studentNo}, #{studentName}, #{studentClass}, #{studentSubject}, #{studentAddress}, #{studentPhone})
+    </insert>
+
+    <!-- 학생 정보 수정-->
+    <update id="studentModify">
+        UPDATE STUDENT
+        <set>
+            <if test="studentClass != null">
+                STUDENT_CLASS=#{studentClass},
+            </if>
+            <if test="studentSubject != null">
+                STUDENT_SUBJECT=#{studentSubject},
+            </if>
+            <if test="studentAddress != null">
+                STUDENT_ADDRESS=#{studentAddress},
+            </if>
+            <if test="studentPhone != null">
+                STUDENT_PHONE=#{studentPhone},
+            </if>
+        </set>
+        WHERE STUDENT_NAME=#{studentName}
+    </update>
+</mapper>

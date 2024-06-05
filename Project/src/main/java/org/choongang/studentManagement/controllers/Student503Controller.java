@@ -1,24 +1,25 @@
-package org.choongang.admin.controllers;
+package org.choongang.studentManagement.controllers;
 
 import org.choongang.admin.adminmain.AdminMainRouter;
 import org.choongang.admin.constants.AdminMenu;
 import org.choongang.global.AbstractController;
 import org.choongang.global.Controller;
 import org.choongang.global.ControllerLocator;
-import org.choongang.studentManagement.StudentManagementControllerLocator;
+import org.choongang.studentManagement.SubStudentManagementControllerLocator;
 import org.choongang.studentManagement.constants.StSMMenu;
 import org.choongang.template.Templates;
 
-public class StudentAdminController extends AbstractController {
+public class Student503Controller extends AbstractController {
     @Override
     public void show() {
-        Templates.getInstance().render(AdminMenu.STUDENT);
+        //기본 출력 화면=서브메인
+        Templates.getInstance().render(StSMMenu.LISTSTUDENT503);
     }
 
     @Override
     public void prompt() {
         while(true) {
-            System.out.print("반을 선택하세요 : ");
+            System.out.print("학생 추가와 수정 중 선택해주세요");
             String menu = sc.nextLine();
             try {
                 int m = Integer.parseInt(menu);
@@ -27,19 +28,19 @@ public class StudentAdminController extends AbstractController {
                     break;
                 }
             } catch (Exception e) {
-                System.err.println("메뉴 1, 2, 3중에서 선택하세요");
+                System.err.println("메뉴 1, 2, 3 중에서 선택하세요.");
             }
         }
     }
     private void change(int menuNo) {
-        ControllerLocator locator = StudentManagementControllerLocator.getInstance();
+        ControllerLocator locator = SubStudentManagementControllerLocator.getInstance();
         Controller controller = null;
         switch(menuNo) {
-            case 1: controller = locator.find(StSMMenu.LISTSTUDENT502); break; // 502호 학생 정보 조회하기
-            case 2: controller = locator.find(StSMMenu.LISTSTUDENT503); break; // 503호 학생 정보 조회하기
-            case 3: controller = locator.find(StSMMenu.BACK); break; // 뒤로 돌아가기
+            case 1: controller = locator.find(StSMMenu.ADDSTUDENT); break; // 학생 추가하기
+            case 2: controller = locator.find(StSMMenu.MODSTUDENT); break; // 학생 정보 수정하기
+            case 3: controller = locator.find(AdminMenu.STUDENT); break; // 뒤로 돌아가기
             default:
-                AdminMainRouter.getInstance().change(AdminMenu.STUDENT);
+                AdminMainRouter.getInstance().change(StSMMenu.LISTSTUDENT503);
                 return;
         }
 

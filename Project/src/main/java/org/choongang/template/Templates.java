@@ -5,6 +5,7 @@ import org.choongang.global.Menu;
 import org.choongang.grades.constants.GradeMenu;
 import org.choongang.lecture.constants.LectureMenu;
 import org.choongang.start.constants.StartMenu;
+import org.choongang.studentManagement.constants.StSMMenu;
 import org.choongang.template.admin.*;
 import org.choongang.template.lecture.AddLectureTpl;
 import org.choongang.template.lecture.ModLectureTpl;
@@ -12,7 +13,7 @@ import org.choongang.template.lecture.SubLectureTpl;
 import org.choongang.template.start.JoinTpl;
 import org.choongang.template.start.LoginTpl;
 import org.choongang.template.start.StartMainTpl;
-
+import org.choongang.template.studentManagement.*;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -50,7 +51,7 @@ public class Templates {
         }
         if (menu instanceof AdminMenu adminMenu) {
             switch(adminMenu) {
-                case STUDENT: tpl = new StudentTpl(); break;
+                case STUDENT: tpl = new StudentAdminTpl(); break;
                 case ATTENDANCE: tpl = new AttendanceTpl(); break;
                 case GRADE: tpl = new GradeTpl(); break;
                 case LECTURE: tpl = new LectureTpl(); break;
@@ -65,14 +66,40 @@ public class Templates {
                 case CLASSCHOICE: tpl = new ClassListTpl(); break;
 
             }
+        } else if (menu instanceof StSMMenu) {
+            StSMMenu stSMMenu = (StSMMenu) menu;
+            switch (stSMMenu) {
+                case ADDSTUDENT:
+                    tpl = new StudentAddTpl();
+                    break;
+                case MODSTUDENT:
+                    tpl = new StudentModTpl();
+                    break;
+                case  LISTSTUDENT502:
+                    tpl = new Student502ListTpl();
+                    break;
+                case LISTSTUDENT503:
+                    tpl = new Student503ListTpl();
+                    break;
+            }
         } else if (menu instanceof LectureMenu) {
             LectureMenu lectureMenu = (LectureMenu) menu;
             switch (lectureMenu) {
-                case LECTUREMAIN : tpl = new LectureTpl(); break;
-                case ADDLECTURE: tpl = new AddLectureTpl(); break;
-                case MODLECTURE: tpl = new ModLectureTpl(); break;
-                case LECTURESUBMAIN: tpl = new SubLectureTpl(); break;
-                case LISTLECTURE: tpl = new ClassListTpl(); break;
+                case LECTUREMAIN:
+                    tpl = new LectureTpl();
+                    break;
+                case ADDLECTURE:
+                    tpl = new AddLectureTpl();
+                    break;
+                case MODLECTURE:
+                    tpl = new ModLectureTpl();
+                    break;
+                case LECTURESUBMAIN:
+                    tpl = new SubLectureTpl();
+                    break;
+                case LISTLECTURE:
+                    tpl = new ClassListTpl();
+                    break;
 
             }
         } else {
